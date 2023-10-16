@@ -13,18 +13,9 @@ public class ListPool : MonoBehaviour
         Transform trf = this.list.Find((i) => i.name == name);
         if (trf == null) return null;
         this.list.Remove(trf);
-        Debug.Log(" pooling ok ");
+       
         return trf;
-        //if(transform.childCount==0) return null;
-        //foreach(Transform t in transform)
-        //{
-        //    if (t.name == name)
-        //    {
-        //        Debug.Log(" pooling ok ");
-        //        return t;
-        //    }
-        //}
-        //return null;
+       
     }
     public void PushToPool(Transform trf)
     {

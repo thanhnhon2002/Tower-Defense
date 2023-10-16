@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttributeEnemy : MonoBehaviour
+public class DataEnemy : MonoBehaviour
 {
     [SerializeField] protected float hp;
     [SerializeField] protected float atk;
     [SerializeField] protected float runSpeed;
     [SerializeField] protected float atkSpeed;
     [SerializeField] protected float rangeAtk;
-    [SerializeField] protected string category;
+    [SerializeField] protected Category category;
     [SerializeField] protected new string name;
     public float getRunSpeed => runSpeed;
+    public Category _category => this.category;
+    [SerializeField] protected EnemySO enemySO;
     protected void LoadAttribute()
     {
         this.name = transform.parent.name.Replace("(Clone)","");
-        this.hp = Resources.Load<EnemySO>("EnemySO/" + this.name).hp;
-        this.atk = Resources.Load<EnemySO>("EnemySO/" + this.name).atk;
-        this.runSpeed = Resources.Load<EnemySO>("EnemySO/" + this.name).runSpeed;
-        this.atkSpeed = Resources.Load<EnemySO>("EnemySO/" + this.name).atkSpeed;
-        this.rangeAtk = Resources.Load<EnemySO>("EnemySO/" + this.name).rangeAtk;
-        this.category = Resources.Load<EnemySO>("EnemySO/" + this.name).category;
+        this.enemySO = Resources.Load<EnemySO>("EnemySO/" + this.name);
+        this.hp = this.enemySO.hp;
+        this.atk = this.enemySO.atk;
+        this.runSpeed = this.enemySO.runSpeed;
+        this.atkSpeed = this.enemySO.atkSpeed;
+        this.rangeAtk = this.enemySO.rangeAtk;
+        this.category = this.enemySO.category;
     }
     private void Awake()
     {

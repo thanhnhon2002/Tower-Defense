@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObject : MonoBehaviour
+public abstract class SpawnObject : MonoBehaviour
 {
-    static public SpawnObject instance;
+    
     [SerializeField] protected Transform listClone;
     [SerializeField] protected ListPool listPool;
-
-    private void Awake()
+    protected virtual void Awake()
     {
         
         this.LoadTransform();
         this.LoadComponent();
-        instance = this;
+      
 
     }
     protected void LoadTransform()
@@ -37,26 +36,19 @@ public class SpawnObject : MonoBehaviour
         if ( newTrf== null)
         {
             Transform prefab = transform.parent.Find("ListPrefab").GetComponent<ListPrefab>().getPrefab(name);
-            Transform newTrf1 = Instantiate(prefab, pos, rotation);
-            newTrf1.name = name;
-            newTrf1.gameObject.SetActive(true);
-            newTrf1.transform.SetParent(this.listClone);
-            return newTrf1;
+            newTrf = Instantiate(prefab, pos, rotation);
+            newTrf.name = name;
+            
         }
         else
         {
-           
-            newTrf.transform.position = pos;
-            newTrf.transform.rotation = rotation;
-           
             newTrf.gameObject.SetActive(true);
-            newTrf.transform.SetParent(this.listClone);
-            return newTrf;
-        }
-        
-        
-
-       
+            newTrf.transform.position = pos;
+            newTrf.transform.rotation = rotation;         
+           
+        }    
+        newTrf.transform.SetParent(this.listClone);
+        return newTrf;
     }
 
 }

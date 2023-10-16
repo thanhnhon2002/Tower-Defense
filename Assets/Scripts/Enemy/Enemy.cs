@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCtrl : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    public DataEnemy dataEnemy;
     public MoveFollowEnemyPath moveFollowEnemyPath;
-    public AttributeEnemy attributeEnemy;
+    
     private void Awake()
     {
         this.LoadComponent();
@@ -13,6 +14,6 @@ public class EnemyCtrl : MonoBehaviour
     protected void LoadComponent()
     {
         this.moveFollowEnemyPath = this.transform.GetComponentInChildren<MoveFollowEnemyPath>();
-        this.attributeEnemy = this.transform.GetComponentInChildren<AttributeEnemy>();
+        this.dataEnemy = this.transform.GetComponentInChildren<DataEnemy>();
     }
 }

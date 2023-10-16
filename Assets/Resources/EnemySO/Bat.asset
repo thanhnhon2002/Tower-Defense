@@ -17,5 +17,5 @@ MonoBehaviour:
   runSpeed: 1
   atkSpeed: 1
   rangeAtk: 1
-  category: long
+  category: 2
   name: Bat
