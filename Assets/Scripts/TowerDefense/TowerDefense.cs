@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerDenfense : MonoBehaviour
 {  
     public DataTowerDefense data;
+    public TowerAttack attack;
     protected virtual void Awake() => this.LoadComponent();
     
     protected virtual void LoadComponent()

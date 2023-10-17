@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class BowTower : TowerDenfense
 {
-    public BowTowerAttack attack;
+    //public BowTowerAttack attack;
     protected override void LoadComponent()
     {
         base.LoadComponent();
+      
         this.attack = transform.Find("Attack").GetComponent<BowTowerAttack>();
     }
 }

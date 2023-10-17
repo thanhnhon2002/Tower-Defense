@@ -14,6 +14,7 @@ public abstract class BulletMovement : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         this.Movement();
+        this.SetRotate();
     }
-    
+    protected virtual void SetRotate() { }
 }

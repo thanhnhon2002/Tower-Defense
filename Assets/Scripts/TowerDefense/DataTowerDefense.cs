@@ -17,6 +17,7 @@ public class DataTowerDefense : MonoBehaviour
     [SerializeField] protected TowerDefenseSO towerDefenseSO;
     public Category _category => this.category;
     public float _atkSpeed => this.atkSpeed;
+    public float _atk => this.atk;
     private void Awake()
     {
         this.LoadAttribute();

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   atk: 1
-  runSpeed: 1
+  runSpeed: 0.15
   atkSpeed: 1
   rangeAtk: 1
   category: 2

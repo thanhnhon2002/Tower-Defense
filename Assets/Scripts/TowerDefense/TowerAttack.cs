@@ -8,7 +8,7 @@ public abstract class TowerAttack : MonoBehaviour
     protected bool isAttack;
     protected Transform target;
 
-    
+    public Transform _target=>this.target;
     public void SetIsAttack(bool isAttack)
     {
         this.isAttack = isAttack;

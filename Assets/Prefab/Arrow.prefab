@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173336b388b68dc4eb10f18867bd9677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &3641464563673586127
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5389267575850509576}
-  - component: {fileID: 5855442905702080498}
+  - component: {fileID: 8894995863970783662}
   m_Layer: 8
   m_Name: Movement
   m_TagString: Untagged
@@ -76,7 +78,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3272688820548042768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5855442905702080498
+--- !u!114 &8894995863970783662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

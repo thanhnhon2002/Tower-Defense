@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AttackRangeCollider : MonoBehaviour
 {
-    [SerializeField] protected List<Transform> listTarget =new List<Transform>();
-    [SerializeField] protected BowTower towerdefense;
+      List<Transform> listTarget =new List<Transform>();
+    [SerializeField] protected TowerDenfense towerdefense;
 
     
     private void Awake() => this.LoadComponent();
     
     void LoadComponent()
     {
-        this.towerdefense = transform.parent.GetComponent<BowTower>();
+        if(this.transform.parent.name.Contains("BowTower"))
+        {
+            this.towerdefense = transform.parent.GetComponent<BowTower>();
+        }
+       
      
     }
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +47,7 @@ public class AttackRangeCollider : MonoBehaviour
         if (this.listTarget.Count <= 0)
         {
             this.towerdefense.attack.SetIsAttack(false);
+            this.towerdefense.attack.SetTarget(null);
             return;
         }
         this.towerdefense.attack.SetIsAttack(true);

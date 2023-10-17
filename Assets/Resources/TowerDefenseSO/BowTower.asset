@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: BowTower
   atk: 1
-  atkSpeed: 2
+  atkSpeed: 0.5
   rangeAtk: 3
   price: 0
   currentLevel: 0
