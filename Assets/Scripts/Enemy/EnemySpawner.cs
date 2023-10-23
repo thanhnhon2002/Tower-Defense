@@ -19,7 +19,7 @@ public class EnemySpawner : SpawnObject
         Enemy enemyCtrl = newEnemy.GetComponent<Enemy>();
        
         enemyCtrl.moveFollowEnemyPath.SetPath(path);
-        enemyCtrl.moveFollowEnemyPath.StartMove();
+        
         return newEnemy;
        
     }

@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerDenfense : MonoBehaviour
+public abstract class TowerDenfense : AdminMonoBehaviour
 {  
-    public DataTowerDefense data;
-    public TowerAttack attack;
-    protected virtual void Awake() => this.LoadComponent();
-    
-    protected virtual void LoadComponent()
+    public Transform tData;
+    public Transform tInterface;
+    protected override void LoadData()
     {
-       
-        this.data = transform.Find("Data").GetComponent<DataTowerDefense>();
+        base.LoadData();
+        this.tData = this.transform.Find("Data");
+        this.tInterface = this.transform.Find("Interface");
     }
 }

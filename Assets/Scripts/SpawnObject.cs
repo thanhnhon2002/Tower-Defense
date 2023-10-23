@@ -26,6 +26,7 @@ public abstract class SpawnObject : MonoBehaviour
     public Transform Spawn(Transform trf, Vector3 pos, Quaternion rotation)
     {
         Transform newTrf = Instantiate(trf, pos, rotation);
+        newTrf.gameObject.SetActive(true);
         newTrf.transform.SetParent(this.listClone);
         return newTrf;
     }

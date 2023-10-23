@@ -1,9 +1,8 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataTowerDefense : MonoBehaviour
+public class DataTowerDefense : Data
 {
     [SerializeField] protected  new string name;
     [SerializeField] protected  float atk;
@@ -18,11 +17,8 @@ public class DataTowerDefense : MonoBehaviour
     public Category _category => this.category;
     public float _atkSpeed => this.atkSpeed;
     public float _atk => this.atk;
-    private void Awake()
-    {
-        this.LoadAttribute();
-    }
-    protected void LoadAttribute()
+   
+    protected override void LoadData()
     {
         this.name = transform.parent.name.Replace("(Clone)","");
         this.towerDefenseSO = Resources.Load<TowerDefenseSO>("TowerDefenseSO/" + this.name);

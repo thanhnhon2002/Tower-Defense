@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 50; i++)
         {
             int index = Random.Range(0, 2);
             string name = EnemyManager.instance.listPrefab.getPrefab(index).name;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataEnemy : MonoBehaviour
+public class DataEnemy : Data
 {
     [SerializeField] protected float hp;
     [SerializeField] protected float atk;
@@ -14,7 +14,7 @@ public class DataEnemy : MonoBehaviour
     public float getRunSpeed => runSpeed;
     public Category _category => this.category;
     [SerializeField] protected EnemySO enemySO;
-    protected void LoadAttribute()
+    protected override void LoadData()
     {
         this.name = transform.parent.name.Replace("(Clone)","");
         this.enemySO = Resources.Load<EnemySO>("EnemySO/" + this.name);
@@ -25,8 +25,18 @@ public class DataEnemy : MonoBehaviour
         this.rangeAtk = this.enemySO.rangeAtk;
         this.category = this.enemySO.category;
     }
-    private void Awake()
+    public int RecieveDamage(float damage)
     {
-        this.LoadAttribute();
+       this.hp-=damage;
+        if (this.hp < 0)
+        {
+            this.hp = 0;
+            return 0;
+        }
+        return 1;
+    }
+    protected void OnEnable()
+    {
+        this.LoadData();
     }
 }

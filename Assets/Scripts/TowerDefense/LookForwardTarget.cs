@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookForwardTarget : MonoBehaviour
+public class LookForwardTarget : AdminMonoBehaviour
 {
-    [SerializeField] protected TowerDenfense towerDefense;
-    private void Awake()
+    
+   
+    protected TowerSpMobileObjAttack towerAttack;
+    protected override void LoadComponent()
     {
-        this.towerDefense = transform.parent.parent.GetComponent<BowTower>();
+        base.LoadComponent();
+        this.towerAttack = transform.parent.parent.GetComponentInChildren<TowerSpMobileObjAttack>();
+       
     }
-
     // Update is called once per frame
     protected void FixedUpdate()
     {
 
-        if (this.towerDefense.attack._target != null && this.towerDefense.attack._target.gameObject.activeSelf)
+        if (this.towerAttack._target != null && this.towerAttack._target.gameObject.activeSelf)
         {
-            Vector3 distance = this.towerDefense.attack._target.transform.position - transform.parent.position;
+            Vector3 distance = this.towerAttack._target.transform.position - transform.parent.position;
             float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
             angle -= 10;
             Debug.Log(angle);
@@ -32,7 +35,7 @@ public class LookForwardTarget : MonoBehaviour
                 rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
 
             }
-            this.transform.rotation = rotation;
+            this.transform.localRotation = rotation;
         }
     }
 }
