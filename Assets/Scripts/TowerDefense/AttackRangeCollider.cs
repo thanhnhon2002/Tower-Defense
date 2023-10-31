@@ -5,11 +5,11 @@ using UnityEngine;
 public class AttackRangeCollider : AdminMonoBehaviour
 {
     List<Transform> listTarget = new List<Transform>();
-    [SerializeField] protected TowerSpawnBullet towerdefense;
+    [SerializeField] protected TowerSpawnMobileObject towerdefense;
     protected TowerSpMobileObjAttack towerAttack;
     protected override void LoadComponent()
     {
-        this.towerdefense = transform.parent.GetComponentInChildren<TowerSpawnBullet>();
+        this.towerdefense = transform.parent.GetComponentInChildren<TowerSpawnMobileObject>();
         this.towerAttack = this.towerdefense.transform.GetComponentInChildren<TowerSpMobileObjAttack>();
     }
     protected void OnTriggerEnter2D(Collider2D collision)

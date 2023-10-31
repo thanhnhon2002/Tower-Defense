@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerSpawnBullet : TowerAttackBySpawn
+public class TowerSpawnMobileObject : TowerAttackBySpawn
 {
     public Transform tAttackRangeCollider;
     protected override void LoadData()

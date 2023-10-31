@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataMobileObject : DataObjectSpawn
 {
-    [SerializeField] protected Transform target;
+    [SerializeField] protected Transform target =null;
     public Transform _target => this.target;
     [SerializeField] protected float damage;
     public float _damage => this.damage;

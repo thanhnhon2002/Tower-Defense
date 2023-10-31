@@ -4,14 +4,8 @@ using UnityEngine;
 
 public abstract class TowerAttack : BaseAttack
 {
-    protected DataTowerDefense dataTower;
-    protected Transform target;
-    public Transform _target => this.target;
-
-    public void SetTarget(Transform target)
-    {
-        this.target = target;
-    }
+    [SerializeField] protected DataTowerDefense dataTower;
+    
     protected override void LoadComponent()
     {
         base.LoadComponent();

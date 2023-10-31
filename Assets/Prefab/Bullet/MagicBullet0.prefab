@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e2665fbc3043c43babb43a60c215e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  name: 
   target: {fileID: 0}
   damage: 0
-  flySpeed: 8
+  flySpeed: 15
 --- !u!1 &3641464563673586127
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +58,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5389267575850509576}
-  - component: {fileID: 7118492289579617251}
+  - component: {fileID: 2506676517105181421}
   m_Layer: 8
   m_Name: Movement
   m_TagString: Untagged
@@ -79,7 +81,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3272688820548042768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7118492289579617251
+--- !u!114 &2506676517105181421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,9 +90,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3641464563673586127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373e922f63ef9ea469bb322e4a8e1ec4, type: 3}
+  m_Script: {fileID: 11500000, guid: bcf8402ca1f0c264daa49f961cee054f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
 --- !u!1 &4962321552263883799
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +105,7 @@ GameObject:
   - component: {fileID: 3272688820548042768}
   - component: {fileID: 7639446342739879479}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: MagicBullet0
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,8 +218,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2047323925
   m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300014, guid: 0696fe973d142944bbe1d7b1f23772c5, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300016, guid: 0696fe973d142944bbe1d7b1f23772c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2412040510286534207}
-  - component: {fileID: 2191022740480321443}
+  - component: {fileID: 2846690202246247936}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -259,7 +262,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3272688820548042768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2191022740480321443
+--- !u!58 &2846690202246247936
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,6 +294,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0027483106, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.34334862
+  m_Radius: 0.5

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataObjectSpawn : Data
+public class DataObjectSpawn : AdminMonoBehaviour
 {
-    protected Transform spawner;
+    [SerializeField] protected Transform spawner;
     public Transform _spawner => spawner;
-    protected new string name;
     public void SetSpawner(Transform spawner)
     {
         this.spawner = spawner;

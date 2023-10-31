@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataTowerDefense : Data
+public class DataTowerDefense : AdminMonoBehaviour
 {
     [SerializeField] protected  new string name;
     [SerializeField] protected  float atk;

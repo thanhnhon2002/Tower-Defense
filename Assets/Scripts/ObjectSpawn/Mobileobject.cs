@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mobileobject : ObjectSpawn
+public class MobileObject : ObjectSpawn
 {
     
     public Transform tMovement;

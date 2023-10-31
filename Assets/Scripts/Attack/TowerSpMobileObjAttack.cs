@@ -5,11 +5,17 @@ using UnityEngine;
 public class TowerSpMobileObjAttack : TowerAttack
 {
    
-    [SerializeField]protected Transform spawnPoint;
+    [SerializeField] protected Transform spawnPoint;
     [SerializeField] protected Transform objectSpawn;
+    [SerializeField] protected Transform target;
+    public Transform _target => this.target;
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
     protected IEnumerator CheckTarget()
     {
-
         while (true)
         {
             if (this.target!=null) if (!this.target.gameObject.activeSelf) this.target = null;

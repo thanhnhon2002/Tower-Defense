@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAttack : AdminMonoBehaviour
+public abstract class BaseAttack : AdminMonoBehaviour
 {
     protected bool isAttack;
     public bool _isAttack => isAttack;
@@ -10,5 +10,5 @@ public class BaseAttack : AdminMonoBehaviour
     {
         this.isAttack = isAttack;
     }
-    protected virtual void Attack() { }
+    protected abstract void Attack();
 }

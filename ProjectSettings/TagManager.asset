@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Enemy
   - TowerDefense
+  - Defender
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - TowerDefense
   - Enemy
   - Bullet
-  - 
+  - Defender
   - 
   - 
   - 
