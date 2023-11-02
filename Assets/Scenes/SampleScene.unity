@@ -2718,21 +2718,30 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -4.289963, y: 0.31340408}
-      - {x: -4.585205, y: 4.388855}
-      - {x: -5.440982, y: 5.9864416}
-      - {x: -9.542002, y: 7.6866293}
-      - {x: -14.035164, y: 6.634207}
-      - {x: -16.56341, y: 0.34758902}
-      - {x: -21.356892, y: -0.025003612}
-      - {x: -21.37539, y: -3.8324332}
-      - {x: -13.848967, y: -3.3484175}
-      - {x: -12.86012, y: -2.9064417}
-      - {x: -12.8245945, y: 3.1263614}
-      - {x: -11.330145, y: 4.2700453}
-      - {x: -8.872683, y: 3.8651116}
-      - {x: -7.5282784, y: 0.62715054}
-      - {x: -7.884281, y: -2.4360783}
+    - - {x: -4.7964163, y: 0.060177207}
+      - {x: -4.685236, y: 0.590806}
+      - {x: -5.367906, y: 4.0435457}
+      - {x: -6.08556, y: 5.54905}
+      - {x: -7.917559, y: 6.2820444}
+      - {x: -9.963589, y: 6.760646}
+      - {x: -12.890158, y: 6.141857}
+      - {x: -14.564638, y: 5.3220315}
+      - {x: -15.179233, y: 1.4340569}
+      - {x: -16.19508, y: -0.5962565}
+      - {x: -21.264809, y: -0.6926016}
+      - {x: -21.39841, y: -3.302959}
+      - {x: -14.125214, y: -2.795923}
+      - {x: -13.458656, y: -2.054679}
+      - {x: -13.400714, y: 1.6326756}
+      - {x: -13.61453, y: 2.2800004}
+      - {x: -13.370318, y: 3.5670028}
+      - {x: -12.523792, y: 4.4640756}
+      - {x: -11.395957, y: 4.953892}
+      - {x: -9.68587, y: 4.969773}
+      - {x: -8.113002, y: 4.440627}
+      - {x: -7.3746715, y: 2.5850291}
+      - {x: -7.1369276, y: 0.6041299}
+      - {x: -7.1936626, y: -2.2979548}
       - {x: -7.373942, y: -6.617305}
       - {x: -6.8282533, y: -8.467086}
       - {x: -3.1035128, y: -9.175855}
@@ -2755,7 +2764,9 @@ PolygonCollider2D:
       - {x: 2.8449144, y: -4.4634314}
       - {x: 0.9198041, y: -5.1791496}
       - {x: -4.0730405, y: -4.892395}
-      - {x: -4.287217, y: -2.3719883}
+      - {x: -4.8703694, y: -3.9969072}
+      - {x: -4.694835, y: -2.6532993}
+      - {x: -4.7936707, y: -2.1187615}
   m_UseDelaunayMesh: 0
 --- !u!1 &789721068
 GameObject:
@@ -3177,7 +3188,7 @@ Transform:
   m_GameObject: {fileID: 965979473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.37, y: -9.81, z: 0}
+  m_LocalPosition: {x: -10.57, y: 2.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3254,7 +3265,7 @@ MonoBehaviour:
   tData: {fileID: 0}
   tInterface: {fileID: 0}
   tAttack: {fileID: 0}
-  tObjectSpawn: {fileID: 0}
+  tObjectSpawn: {fileID: 473117537}
   collider: {fileID: 0}
 --- !u!1 &981519263
 GameObject:
@@ -4312,6 +4323,8 @@ MonoBehaviour:
   createPos: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 1354932009}
   colliderPath: {fileID: 782915454}
+  animator: {fileID: 0}
+  attack: {fileID: 0}
 --- !u!1 &1285946695
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,6 +4453,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316058954}
+  - component: {fileID: 1316058957}
+  - component: {fileID: 1316058956}
+  - component: {fileID: 1316058955}
   m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
@@ -4462,6 +4478,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 473117537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316058955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316058953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82980ded83950ba44838f8f726ca83b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 0}
+  listTarget: []
+  collider: {fileID: 0}
+--- !u!50 &1316058956
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316058953}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1316058957
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316058953}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1354932008
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,6 +6880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050571917}
+  - component: {fileID: 2050571918}
   m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
@@ -6809,6 +6903,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 473117537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2050571918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050571916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a458045d4623e49b064031cc2ef7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &2098141607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,6 +7028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1960869366}
     m_Modifications:
+    - target: {fileID: 5962655530752414690, guid: 53871e9c5b3e63b4fb373bc2f36f3b52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6636630415545782149, guid: 53871e9c5b3e63b4fb373bc2f36f3b52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.56
@@ -7103,9 +7215,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3622514677756126970, guid: e32e7b8a06104424289461df9a0a9651, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4162679087020038132, guid: e32e7b8a06104424289461df9a0a9651, type: 3}
       propertyPath: m_Name
       value: WitchTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162679087020038132, guid: e32e7b8a06104424289461df9a0a9651, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7882,6 +8002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1960869366}
     m_Modifications:
+    - target: {fileID: 1840877837848720405, guid: 93e1b17744562504db7ed9f1bbf8c2c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2205252806580329232, guid: 93e1b17744562504db7ed9f1bbf8c2c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4
@@ -7925,6 +8049,10 @@ PrefabInstance:
     - target: {fileID: 2252909745970602738, guid: 93e1b17744562504db7ed9f1bbf8c2c5, type: 3}
       propertyPath: m_Name
       value: BowTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252909745970602738, guid: 93e1b17744562504db7ed9f1bbf8c2c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

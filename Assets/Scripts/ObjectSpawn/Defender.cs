@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileObject : ObjectSpawn
+public class Defender : ObjectSpawn
 {
-    public Transform tSprite;
+    public Transform tAnimation;
     public Transform tMovement;
     protected override void LoadData()
     {
         base.LoadData();
         this.tMovement = this.transform.Find("Movement");
-        this.tSprite = this.transform.Find("Sprite");
+        this.tAnimation = this.transform.Find("Animation");
     }
-    
 }
