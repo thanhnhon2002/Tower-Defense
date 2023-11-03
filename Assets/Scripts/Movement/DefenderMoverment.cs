@@ -15,12 +15,14 @@ public class DefenderMoverment : BaseMovement
     {
         this.createPos = newPos;
     }
+    
     protected override void LoadComponent()
     {
         base.LoadComponent();
         this.dataDefender = transform.parent.GetComponentInChildren<DataDefender>();
         this.animator = transform.parent.GetComponentInChildren<Animator>();
         this.attack = transform.parent.GetComponentInChildren<DefenderAttack>();
+     
     }
     protected override void LoadData()
     {
@@ -29,6 +31,7 @@ public class DefenderMoverment : BaseMovement
     }
     protected void OnEnable()
     {
+        this.spawnPoint = this.dataDefender._spawner.GetComponent<TowerSpawnDefender>().tSpawnPoint;
         StartCoroutine(MoveWhenCreate());
     }
     protected override void Move()

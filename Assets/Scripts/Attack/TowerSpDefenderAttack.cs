@@ -39,8 +39,10 @@ public class TowerSpDefenderAttack : TowerAttack
             this.SpawnDefender();
             return;
         }
-        Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position,Quaternion.identity,newPos);   
-        
+        Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position,Quaternion.identity,newPos);
+       
+        newObj.GetComponentInChildren<DataDefender>().SetSpawner(this.transform.parent);
+        newObj.gameObject.SetActive(true);
     }
     protected IEnumerator IsSpawnDefender()
     {

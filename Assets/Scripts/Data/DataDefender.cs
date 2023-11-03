@@ -15,6 +15,11 @@ public class DataDefender : DataObjectSpawn
     [SerializeField] protected Category category;
     [SerializeField] protected DefenderSO defenderSO;
     public float _runSpeed => this.runSpeed;
+    public float _atkSpeed => this.atkSpeed;
+    public float _atk => this.atk;
+    public float _hp => this.hp;
+    public Category _category => this.category;
+
     protected override void LoadData()
     {
         base.LoadData();
@@ -32,5 +37,19 @@ public class DataDefender : DataObjectSpawn
     protected void OnEnable()
     {
         this.hp = this.defenderSO.hp;
+    }
+    public void ReceiveDamage(float damage)
+    {
+        this.hp -= atk;
+        if (this.hp < 0)
+        {
+            this.hp = 0;
+            this.Die();
+        }
+        Debug.Log(transform.parent.name+ ": Hp= " + this.hp);
+    }
+    protected void Die()
+    {
+        DefenderManager.instance.listPool.PushToPool(this.transform.parent);
     }
 }

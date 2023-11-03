@@ -27,7 +27,7 @@ public class MoveFollowEnemyPath : BaseMovement
         while (this.currentIndex != this.path.Count - 1)
         {
             if (this.transform.parent.position!=this.path[this.currentIndex + 1]) 
-                this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy.getRunSpeed * Time.fixedDeltaTime);
+                this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy._runSpeed * Time.fixedDeltaTime);
             else this.currentIndex++;
             yield return null;
         }

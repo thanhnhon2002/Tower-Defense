@@ -11,8 +11,10 @@ public class DataEnemy : Data
     [SerializeField] protected float rangeAtk;
     [SerializeField] protected Category category;
     [SerializeField] protected new string name;
-    public float getRunSpeed => runSpeed;
+    public float _runSpeed => runSpeed;
+    public float _hp => hp;
     public Category _category => this.category;
+
     [SerializeField] protected EnemySO enemySO;
     protected override void LoadData()
     {
@@ -27,10 +29,12 @@ public class DataEnemy : Data
     }
     public int RecieveDamage(float damage)
     {
+        
        this.hp-=damage;
         if (this.hp < 0)
         {
             this.hp = 0;
+            this.Die();
             return 0;
         }
         return 1;
@@ -38,5 +42,9 @@ public class DataEnemy : Data
     protected void OnEnable()
     {
         this.LoadData();
+    }
+    protected void Die()
+    {
+        EnemyManager.instance.listPool.PushToPool(this.transform.parent);
     }
 }
