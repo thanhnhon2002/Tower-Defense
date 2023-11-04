@@ -10,7 +10,7 @@ public class TowerSpDefenderAttack : TowerAttack
     [SerializeField] protected Transform objectSpawn;
     [SerializeField] protected Transform spawnPoint;
     [SerializeField] protected Collider2D colliderPath;
-  
+    public void ReduceCountDefender() => this.countDefender--;
     protected void OnEnable()
     {
         this.countDefender = 0;
@@ -32,15 +32,14 @@ public class TowerSpDefenderAttack : TowerAttack
     }
     protected void SpawnDefender()
     {
-        Vector3 randomPos = new Vector3(Random.Range(-4, 4), Random.Range(-4, 4), 0);
+        Vector3 randomPos = new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), 0);
         Vector3 newPos = randomPos + this.spawnPoint.position;
-        if (Vector3.Distance(newPos, this.colliderPath.ClosestPoint(newPos)) > 0.1f)
+        if (Vector3.Distance(newPos, this.colliderPath.ClosestPoint(newPos)) > 0.03f)
         {
             this.SpawnDefender();
             return;
         }
         Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position,Quaternion.identity,newPos);
-       
         newObj.GetComponentInChildren<DataDefender>().SetSpawner(this.transform.parent);
         newObj.gameObject.SetActive(true);
     }
@@ -51,9 +50,10 @@ public class TowerSpDefenderAttack : TowerAttack
         {
             if(this.countDefender<this.dataTower._atk)
             {
+                yield return new WaitForSeconds(this.dataTower._atkSpeed);
                 this.countDefender++;
                 this.SpawnDefender();
-                yield return new WaitForSeconds(this.dataTower._atkSpeed);
+                
             }
 
             yield return null;

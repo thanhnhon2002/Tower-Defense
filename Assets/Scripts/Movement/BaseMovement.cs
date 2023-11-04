@@ -7,6 +7,9 @@ public abstract class BaseMovement : AdminMonoBehaviour
 {
     [SerializeField] protected float runSpeed;
     protected abstract void Move();
-    
-    
+    protected virtual void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
 }

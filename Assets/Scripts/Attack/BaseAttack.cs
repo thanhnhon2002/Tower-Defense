@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseAttack : AdminMonoBehaviour
 {
-    protected bool isAttack;
+    [SerializeField] protected bool isAttack;
     public bool _isAttack => isAttack;
     public void SetIsAttack(bool isAttack)
     {

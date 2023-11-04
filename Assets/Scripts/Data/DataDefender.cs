@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DataDefender : DataObjectSpawn
@@ -40,16 +41,32 @@ public class DataDefender : DataObjectSpawn
     }
     public void ReceiveDamage(float damage)
     {
-        this.hp -= atk;
+        this.hp -= damage;
         if (this.hp < 0)
         {
-            this.hp = 0;
-            this.Die();
+            this.hp = 0;     
         }
-        Debug.Log(transform.parent.name+ ": Hp= " + this.hp);
+       
     }
     protected void Die()
     {
+        Transform animation = DefenderSpawner.instance.Spawn(transform.parent.Find("Animation"), transform.parent.position, Quaternion.identity);
+        SpriteRenderer sprite = animation.GetComponent<SpriteRenderer>();
+        sprite.sortingOrder = -1;
+        Animator animator = animation.GetComponentInChildren<Animator>();
+        animator.SetInteger("die", 1);
+        animation.AddComponent<DestroyByTime>();
+        DestroyByTime destroyByTime = animation.GetComponent<DestroyByTime>();
+        destroyByTime.SetTimeMax(3.5f);
+        this.spawner.GetComponentInChildren<TowerSpDefenderAttack>().ReduceCountDefender();
         DefenderManager.instance.listPool.PushToPool(this.transform.parent);
+        
+    }
+    private void FixedUpdate()
+    {
+        if (this.hp <= 0)
+        {
+            this.Die();
+        }
     }
 }

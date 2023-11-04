@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollider : AdminMonoBehaviour
+public class EnemyCollider : BaseCollider
 {
     [SerializeField] protected DataEnemy dataEnemy;
   
@@ -16,8 +16,8 @@ public class EnemyCollider : AdminMonoBehaviour
         {
             DataMobileObject dataMobileObject = collision.transform.parent.GetComponentInChildren<DataMobileObject>();
             if (this.dataEnemy._category > dataMobileObject._category) return;
-            if (this.dataEnemy.RecieveDamage(dataMobileObject._damage) == 0)
-                EnemyManager.instance.listPool.PushToPool(transform.parent);
+            this.dataEnemy.RecieveDamage(dataMobileObject._damage);
+                //EnemyManager.instance.listPool.PushToPool(transform.parent);
             BulletManager.instance.listPool.PushToPool(collision.transform.parent);
         }
     }

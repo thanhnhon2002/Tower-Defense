@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Swordsman
   atk: 2
-  hp: 10
+  hp: 20
   atkSpeed: 1
   runSpeed: 1
   rangeAtk: 0

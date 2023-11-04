@@ -17,9 +17,7 @@ public class EnemySpawner : SpawnObject
         List<Vector3> path = ListEnemyPath.instance.GetRandomEnemyPath();
         Transform newEnemy = base.Spawn(name, path[0], Quaternion.identity);
         Enemy enemyCtrl = newEnemy.GetComponent<Enemy>();
-       
-        enemyCtrl.moveFollowEnemyPath.SetPath(path);
-        
+        enemyCtrl.moveFollowEnemyPath.SetPath(path);  
         return newEnemy;
        
     }

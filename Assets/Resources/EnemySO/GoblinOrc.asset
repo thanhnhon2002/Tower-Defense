@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43b4f5bb74121b418f59e41d9067a0f, type: 3}
   m_Name: GoblinOrc
   m_EditorClassIdentifier: 
+  name: GoblinOrc
   hp: 20
   atk: 3
   runSpeed: 1
-  atkSpeed: 0
+  atkSpeed: 1
   rangeAtk: 0
   category: 1
-  name: GoblinOrc

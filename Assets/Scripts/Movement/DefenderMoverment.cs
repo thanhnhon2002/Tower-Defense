@@ -33,6 +33,7 @@ public class DefenderMoverment : BaseMovement
     {
         this.spawnPoint = this.dataDefender._spawner.GetComponent<TowerSpawnDefender>().tSpawnPoint;
         StartCoroutine(MoveWhenCreate());
+        Debug.Log("Cre pos: " + this.createPos + "current pos: " + this.transform.parent.position);
     }
     protected override void Move()
     {
@@ -49,7 +50,6 @@ public class DefenderMoverment : BaseMovement
     }
     IEnumerator MoveWhenCreate()
     {
-
         while (this.transform.parent.position != this.createPos)
         {
             this.MoveTowardsPos(this.createPos);    

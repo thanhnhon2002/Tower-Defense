@@ -17,10 +17,11 @@ public class DestroyByDistance : BaseDestroy
     {
         this.target = this.transform.parent.GetComponent<MobileObject>().tData.GetComponent<DataMobileObject>()._spawner;
     }
-    protected override void IsDestroy()
+    protected override bool IsDestroy()
     {
         
-        if (this.target != null&&this.distance < Vector3.Distance(this.transform.position, this.target.position)) this.Destroy();
+        if (this.target != null&&this.distance < Vector3.Distance(this.transform.position, this.target.position)) return true;
+        return false;
     }
     protected override void Destroy()
     {
@@ -29,6 +30,6 @@ public class DestroyByDistance : BaseDestroy
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        this.IsDestroy();
+        if(this.IsDestroy()) this.Destroy();
     }
 }

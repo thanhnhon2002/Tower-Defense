@@ -38,15 +38,14 @@ public abstract class SpawnObject : MonoBehaviour
         {
             Transform prefab = transform.parent.Find("ListPrefab").GetComponent<ListPrefab>().getPrefab(name);
             newTrf = Instantiate(prefab, pos, rotation);
-            newTrf.name = name;
-            
+            newTrf.name = name;  
         }
         else
         {
-            newTrf.gameObject.SetActive(true);
+            
             newTrf.transform.position = pos;
-            newTrf.transform.rotation = rotation;         
-           
+            newTrf.transform.rotation = rotation;
+            newTrf.gameObject.SetActive(true);
         }    
         newTrf.transform.SetParent(this.listClone);
         return newTrf;
