@@ -17,6 +17,14 @@ public class EnemyAttack : AttackOnPath
         if (this.target != null)
         {
             this.SendDamage(this.dataEnemy._atk);
+            switch (transform.parent.name)
+            {
+                case "Bat":
+                case "Goblin":
+                case "GoblinOrc":
+                    AudioSpawner.instance.Spawn("Roar1", transform.parent.position, Quaternion.identity);
+                    break;
+            }
 
         }
     }

@@ -10,7 +10,6 @@ public class EnemySpawner : SpawnObject
     {
         base.Awake();
         instance = this;
-
     }
     public override Transform Spawn(string name, Vector3 pos, Quaternion rotation)
     {

@@ -18,6 +18,17 @@ public class DefenderAttack : AttackOnPath
         if (this.target != null)
         {
             this.SendDamage(this.dataDefender._atk);
+            int random = Random.Range(0,2);
+            switch (random)
+            {
+                case 0:
+                    AudioSpawner.instance.Spawn("Melee2", transform.parent.position, Quaternion.identity);
+                    break;
+                case 1:
+                    AudioSpawner.instance.Spawn("Melee1", transform.parent.position, Quaternion.identity);
+                    break;
+            }
+            
         }
     }
    

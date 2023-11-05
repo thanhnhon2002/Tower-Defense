@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class MoveFollowEnemyPath : BaseMovement
 {
@@ -11,18 +13,20 @@ public class MoveFollowEnemyPath : BaseMovement
     [SerializeField] protected int currentIndex;
     [SerializeField] protected Enemy enemy;
     [SerializeField] protected EnemyAttack enemyAttack;
+    [SerializeField] protected Animator animator;
     protected override void LoadComponent()
     {
         base.LoadComponent();
         this.enemy = this.transform.parent.GetComponent<Enemy>();
         this.enemyAttack = this.transform.parent.GetComponentInChildren<EnemyAttack>();
+        this.animator = transform.parent.GetComponentInChildren<Animator>();
     }
-   
     public void SetPath(List<Vector3> path)
     {
         this.path = path;
         this.currentIndex=0;
     }
+ 
     IEnumerator MoveWithPath()
     {
         while (this.currentIndex != this.path.Count - 1)
@@ -34,7 +38,23 @@ public class MoveFollowEnemyPath : BaseMovement
             if (this.path.Count !=0)
             {
                 if (this.transform.parent.position != this.path[this.currentIndex + 1])
+                {
+                    Vector3 distance = this.path[this.currentIndex + 1] - this.path[this.currentIndex];
+                    float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
+                    if (angle < 90 && angle > -90)
+                    {
+                        this.animator.transform.localScale = new Vector3(1, 1, 0);
+                       
+                    }
+                    else
+                    {
+             
+                        this.animator.transform.localScale = new Vector3(-1, 1, 0);
+                       
+                    }
                     this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy._runSpeed * Time.fixedDeltaTime);
+                    
+                }
                 else this.currentIndex++;
             }
             jump:
@@ -57,4 +77,5 @@ public class MoveFollowEnemyPath : BaseMovement
         this.myCoroutine = null;
         this.currentIndex = 0;
     }
+    
 }

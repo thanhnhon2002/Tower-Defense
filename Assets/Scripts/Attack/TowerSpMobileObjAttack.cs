@@ -37,6 +37,19 @@ public class TowerSpMobileObjAttack : TowerAttack
         Transform newBullet = BulletSpawner.instance.Spawn(this.objectSpawn.name,this.spawnPoint.position, rotation);
         DataMobileObject dataBullet = newBullet.GetComponentInChildren<DataMobileObject>();
         dataBullet.SetData(this.transform.parent, this.target, this.dataTower._atk, this.dataTower._category);
+        switch (transform.parent.name)
+        {
+            case "BowTower":
+                AudioSpawner.instance.Spawn("Ranged1", transform.parent.position, Quaternion.identity);
+                break;
+            case "CannonTower":
+                AudioSpawner.instance.Spawn("Shot1", transform.parent.position, Quaternion.identity);
+                break;
+            case "WitchTower":
+                AudioSpawner.instance.Spawn("Magic1", transform.parent.position, Quaternion.identity);
+                break;
+        }
+
     }
     private void OnDrawGizmos()
     {

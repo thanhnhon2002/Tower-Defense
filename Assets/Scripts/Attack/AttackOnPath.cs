@@ -37,6 +37,7 @@ public abstract class AttackOnPath : BaseAttack
             if (angle < 90 && angle > -90) this.animator.transform.localScale = new Vector3(1, 1, 0);
             else this.animator.transform.localScale = new Vector3(-1, 1, 0);
         }
+        //else this.animator.transform.localScale = new Vector3(-1, 1, 0);
     }
     protected virtual IEnumerator SetAnimationAttack()
     {

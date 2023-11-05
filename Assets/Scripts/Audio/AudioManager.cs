@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : AdminMonoBehaviour
+public class AudioManager : AdminMonoBehaviour
 {
-    static public EnemyManager instance;
+    static public AudioManager instance;
     public ListPrefab listPrefab;
     public ListPool listPool;
+    public ListAudioClips listAudioClips;
     protected override void Awake()
     {
-        
         base.Awake();
         instance = this;
     }
@@ -17,5 +17,6 @@ public class EnemyManager : AdminMonoBehaviour
     {
         this.listPrefab = GetComponentInChildren<ListPrefab>();
         this.listPool = GetComponentInChildren<ListPool>();
+        this.listAudioClips = GetComponentInChildren<ListAudioClips>();
     }
 }
