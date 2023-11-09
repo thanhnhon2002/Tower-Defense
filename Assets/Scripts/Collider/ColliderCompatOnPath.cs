@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ColliderCompatOnPath : BaseCollider
@@ -9,17 +10,61 @@ public class ColliderCompatOnPath : BaseCollider
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        this.listTarget.Add(collision.transform.parent);
+        switch (transform.parent.tag)
+        {
+            case "Defender":
+                if (transform.parent.GetComponentInChildren<DataDefender>()._category == collision.transform.parent.GetComponentInChildren<DataEnemy>()._category)
+                    this.listTarget.Add(collision.transform.parent);
+                break;
+            case "Enemy":
+                if (transform.parent.GetComponentInChildren<DataEnemy>()._category == collision.transform.parent.GetComponentInChildren<DataDefender>()._category)
+                    this.listTarget.Add(collision.transform.parent);
+                break;
+        }
+        
     }
     protected void OnTriggerStay2D(Collider2D collision)
     {
-        this.attackOnPath.SetIsAttack(true);
-        if (this.attackOnPath._target == null && this.listTarget.Count > 0) this.attackOnPath.SetTarget(this.listTarget[0]);
+        switch (transform.parent.tag)
+        {
+            case "Defender":
+                if (transform.parent.GetComponentInChildren<DataDefender>()._category == collision.transform.parent.GetComponentInChildren<DataEnemy>()._category)
+                {
+                    this.attackOnPath.SetIsAttack(true);
+                    if (this.attackOnPath._target == null && this.listTarget.Count > 0) this.attackOnPath.SetTarget(this.listTarget[0]);
+
+                }
+                break;
+            case "Enemy":
+                if (transform.parent.GetComponentInChildren<DataEnemy>()._category == collision.transform.parent.GetComponentInChildren<DataDefender>()._category)
+                {
+                    this.attackOnPath.SetIsAttack(true);
+                    if (this.attackOnPath._target == null && this.listTarget.Count > 0) this.attackOnPath.SetTarget(this.listTarget[0]);
+                }
+                break;
+        }
+        
     }
     protected void OnTriggerExit2D(Collider2D collision)
     {
-        this.attackOnPath.SetIsAttack(false);
-        this.listTarget.Remove(collision.transform.parent);
+        switch (transform.parent.tag)
+        {
+            case "Defender":
+                if (transform.parent.GetComponentInChildren<DataDefender>()._category == collision.transform.parent.GetComponentInChildren<DataEnemy>()._category)
+                {
+                    this.attackOnPath.SetIsAttack(false);
+                    this.listTarget.Remove(collision.transform.parent);
+                }
+                break;
+            case "Enemy":
+                if (transform.parent.GetComponentInChildren<DataEnemy>()._category == collision.transform.parent.GetComponentInChildren<DataDefender>()._category)
+                {
+                    this.attackOnPath.SetIsAttack(false);
+                    this.listTarget.Remove(collision.transform.parent);
+                }
+                break;
+        }
+        
     }
     protected void FixedUpdate()
     {

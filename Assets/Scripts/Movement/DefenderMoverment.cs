@@ -15,10 +15,15 @@ public class DefenderMoverment : BaseMovement
     {
         this.createPos = newPos;
     }
+    public void SetSpawnPoint(Transform spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
+    }
     
     protected override void LoadComponent()
     {
         base.LoadComponent();
+        this.colliderPath = MapManager.instance.mapCollider;
         this.dataDefender = transform.parent.GetComponentInChildren<DataDefender>();
         this.animator = transform.parent.GetComponentInChildren<Animator>();
         this.attack = transform.parent.GetComponentInChildren<DefenderAttack>();
@@ -30,10 +35,8 @@ public class DefenderMoverment : BaseMovement
         this.runSpeed = this.dataDefender._runSpeed;
     }
     protected void OnEnable()
-    {
-        this.spawnPoint = this.dataDefender._spawner.GetComponent<TowerSpawnDefender>().tSpawnPoint;
+    {   
         StartCoroutine(MoveWhenCreate());
-   
     }
     protected override void Move()
     {

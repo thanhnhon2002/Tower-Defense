@@ -60,3 +60,6 @@ TagManager:
   - name: Tower
     uniqueID: 2247643371
     locked: 0
+  - name: UIGame
+    uniqueID: 2867022481
+    locked: 0

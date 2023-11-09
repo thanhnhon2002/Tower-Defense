@@ -42,7 +42,6 @@ public abstract class SpawnObject : MonoBehaviour
         }
         else
         {
-            
             newTrf.transform.position = pos;
             newTrf.transform.rotation = rotation;
             newTrf.gameObject.SetActive(true);

@@ -42,11 +42,11 @@ public class DataDefender : DataObjectSpawn
     public void ReceiveDamage(float damage)
     {
         this.hp -= damage;
+        UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position, Quaternion.identity);
         if (this.hp < 0)
         {
-            this.hp = 0;     
+            this.hp = 0;
         }
-       
     }
     protected void Die()
     {
@@ -60,7 +60,6 @@ public class DataDefender : DataObjectSpawn
         destroyByTime.SetTimeMax(3.5f);
         this.spawner.GetComponentInChildren<TowerSpDefenderAttack>().ReduceCountDefender();
         DefenderManager.instance.listPool.PushToPool(this.transform.parent);
-        
     }
     private void FixedUpdate()
     {

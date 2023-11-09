@@ -16,7 +16,7 @@ MonoBehaviour:
   atk: 3
   atkSpeed: 0.5
   rangeAtk: 3
-  price: 0
+  price: 125
   currentLevel: 0
   maxLevel: 0
   category: 3

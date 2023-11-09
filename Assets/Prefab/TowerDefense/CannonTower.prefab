@@ -139,7 +139,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915573633996112797}
-  - component: {fileID: 7588662460885857864}
   m_Layer: 6
   m_Name: Interface
   m_TagString: Untagged
@@ -156,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 2976146818574229113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -165,27 +164,6 @@ Transform:
   - {fileID: 2187862802309553154}
   m_Father: {fileID: 6636630415545782149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7588662460885857864
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2976146818574229113}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0af1beecd99cccf4a820adbd0539152d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3678899791221070385
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,8 +345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985bd10a15c7e8941892f3d621984902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttack: 0
+  towerDefense: {fileID: 0}
+  dataTower: {fileID: 0}
   spawnPoint: {fileID: 7213849053309486907}
   objectSpawn: {fileID: 8234597445130321999, guid: edbc1f79345ba32459c4a5f4dc68a599, type: 3}
+  target: {fileID: 0}
 --- !u!1 &7090250340987724071
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +462,7 @@ Transform:
   m_GameObject: {fileID: 7903560092970572721}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.56, y: -2.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -557,7 +539,8 @@ MonoBehaviour:
   tData: {fileID: 0}
   tInterface: {fileID: 0}
   tAttack: {fileID: 0}
-  tObjectSpawn: {fileID: 3272688820548042768, guid: edbc1f79345ba32459c4a5f4dc68a599, type: 3}
+  tObjectSpawn: {fileID: 8234597445130321999, guid: edbc1f79345ba32459c4a5f4dc68a599, type: 3}
+  tSpawnPoint: {fileID: 0}
   tAttackRangeCollider: {fileID: 0}
 --- !u!1 &8485426094160402986
 GameObject:
@@ -671,7 +654,7 @@ Transform:
   m_GameObject: {fileID: 9000847654845835534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

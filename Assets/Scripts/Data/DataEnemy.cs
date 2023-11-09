@@ -33,6 +33,8 @@ public class DataEnemy : Data
     public void RecieveDamage(float damage)
     {
         this.hp -= damage;
+        transform.parent.GetComponentInChildren<HpBar>().SetHpBar(this.hp / this.enemySO.hp);
+        UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position+new Vector3(0,-0.5f,0), Quaternion.identity);
         if (this.hp < 0) this.hp=0;
            
     }

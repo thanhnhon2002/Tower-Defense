@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1024225140642423826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -374,8 +374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985bd10a15c7e8941892f3d621984902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttack: 0
+  towerDefense: {fileID: 0}
+  dataTower: {fileID: 0}
   spawnPoint: {fileID: 8269484762182483636}
   objectSpawn: {fileID: 3272688820548042768, guid: 7dcb984442a24f242a378fa9062fed32, type: 3}
+  target: {fileID: 0}
 --- !u!1 &4162679087020038132
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 4162679087020038132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.26, y: -9.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -480,7 +484,8 @@ MonoBehaviour:
   tData: {fileID: 0}
   tInterface: {fileID: 0}
   tAttack: {fileID: 0}
-  tObjectSpawn: {fileID: 3272688820548042768, guid: a0675042fd62ae949b0e5f6d9e949957, type: 3}
+  tObjectSpawn: {fileID: 3272688820548042768, guid: 7dcb984442a24f242a378fa9062fed32, type: 3}
+  tSpawnPoint: {fileID: 0}
   tAttackRangeCollider: {fileID: 0}
 --- !u!1 &5949636278268858260
 GameObject:
@@ -575,7 +580,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069256601113026546}
-  - component: {fileID: 2354388416309918725}
   m_Layer: 6
   m_Name: Interface
   m_TagString: Untagged
@@ -592,7 +596,7 @@ Transform:
   m_GameObject: {fileID: 6766272425905213658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -601,27 +605,6 @@ Transform:
   - {fileID: 2949157425109914504}
   m_Father: {fileID: 2216226571521904127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2354388416309918725
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766272425905213658}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0af1beecd99cccf4a820adbd0539152d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7733084736102983631
 GameObject:
   m_ObjectHideFlags: 0

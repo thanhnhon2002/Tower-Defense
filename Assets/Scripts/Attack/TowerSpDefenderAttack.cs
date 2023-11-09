@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class TowerSpDefenderAttack : TowerAttack
 {
-    
-    [SerializeField] protected TowerSpawnDefender tower;
     [SerializeField] protected int countDefender;
-    [SerializeField] protected Transform objectSpawn;
-    [SerializeField] protected Transform spawnPoint;
+
     [SerializeField] protected Collider2D colliderPath;
     public void ReduceCountDefender() => this.countDefender--;
     protected void OnEnable()
@@ -16,14 +13,14 @@ public class TowerSpDefenderAttack : TowerAttack
         this.countDefender = 0;
     }
     protected override void LoadComponent()
-    {
+    { 
+        this.towerDefense = this.transform.parent.GetComponent<TowerSpawnDefender>();
         base.LoadComponent();
-    
-        this.tower = this.transform.parent.GetComponent<TowerSpawnDefender>();
-      
+        
     }
     private void Start()
     {
+        this.colliderPath = MapManager.instance.mapCollider;
         this.Attack();
     }
     protected override void Attack()
@@ -39,9 +36,7 @@ public class TowerSpDefenderAttack : TowerAttack
             this.SpawnDefender();
             return;
         }
-        Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position,Quaternion.identity,newPos);
-        newObj.GetComponentInChildren<DataDefender>().SetSpawner(this.transform.parent);
-        newObj.gameObject.SetActive(true);
+        Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position, Quaternion.identity, newPos, this.transform.parent);
     }
     protected IEnumerator IsSpawnDefender()
     {
@@ -50,10 +45,9 @@ public class TowerSpDefenderAttack : TowerAttack
         {
             if(this.countDefender<this.dataTower._atk)
             {
-                yield return new WaitForSeconds(this.dataTower._atkSpeed);
                 this.countDefender++;
                 this.SpawnDefender();
-                
+                yield return new WaitForSeconds(this.dataTower._atkSpeed); 
             }
 
             yield return null;

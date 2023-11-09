@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerSpMobileObjAttack : TowerAttack
-{
-   
-    [SerializeField] protected Transform spawnPoint;
-    [SerializeField] protected Transform objectSpawn;
+{   
     [SerializeField] protected Transform target;
     public Transform _target => this.target;
 
     public void SetTarget(Transform target)
     {
         this.target = target;
+    }
+    protected override void LoadComponent()
+    {
+        this.towerDefense = transform.parent.GetComponent<TowerSpawnMobileObject>();
+        base.LoadComponent();
     }
     protected IEnumerator CheckTarget()
     {

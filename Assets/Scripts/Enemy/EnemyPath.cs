@@ -8,7 +8,11 @@ public class EnemyPath : MonoBehaviour
     public List<Vector3> GetListPos()
     {
         List<Vector3> list = new List<Vector3>();
-        foreach(Transform t in listPoint) list.Add(t.position);
+        foreach (Transform t in listPoint)
+        {
+            Vector3 pos = new Vector3(Random.Range(-0.5f,0.5f), Random.Range(-0.5f,0.5f),0);
+            list.Add(t.position+pos);
+        }
         return list;
     }
     private void OnDrawGizmos()
