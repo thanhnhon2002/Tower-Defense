@@ -5,13 +5,14 @@ using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 
-public class DataPlayer : Data
+public class Player : Data
 {
-    public static DataPlayer instance;
+    public static Player instance;
     [SerializeField] protected int level;
     [SerializeField] protected DataGamePlayer dataGamePlayer;
     [SerializeField] protected int kill;
-    protected DataPlayerGameSO dataPlayerGameSO;
+    protected DataGameSO dataPlayerGameSO;
+    public DataGamePlayer _dataGamePlayer => dataGamePlayer;
 
     [SerializeField] protected TextMeshProUGUI textGold;
     [SerializeField] protected TextMeshProUGUI textKill;
@@ -23,7 +24,7 @@ public class DataPlayer : Data
     }
     protected override void LoadData()
     {
-        this.dataPlayerGameSO = Resources.Load<DataPlayerGameSO>("DataPlayerGameSO/DataGamePlayer");
+        this.dataPlayerGameSO = Resources.Load<DataGameSO>("DataGameSO/DataGame");
         DataGamePlayer data = this.dataPlayerGameSO.GetDataGamePlayer(this.level);
         this.dataGamePlayer = new DataGamePlayer(data._level, data._gold, data._heal);
         this.textGold = transform.Find("TextGold").GetComponent<TextMeshProUGUI>();
@@ -42,7 +43,7 @@ public class DataPlayer : Data
         this.kill++;
         this.textKill.text = this.kill.ToString();
     }
-    public void IncGold(int gold)
+    public void SetGold(int gold)
     {
         this.dataGamePlayer.SetGold(gold+this.dataGamePlayer._gold);
         this.textGold.text = this.dataGamePlayer._gold.ToString();
@@ -56,9 +57,13 @@ public class DataPlayer : Data
     IEnumerator IncGoldByTime()
     {
         yield return new WaitForSeconds(1);
-        this.IncGold(10);
-        this.IncKill();
-        this.DecHeal(2);
+        this.SetGold(1);
         yield return StartCoroutine(IncGoldByTime());
+    }
+    public bool IsBuying(int price)
+    {
+        bool isBuying = this.dataGamePlayer._gold>=price;
+        if(isBuying) this.SetGold(-price);
+        return isBuying;
     }
 }

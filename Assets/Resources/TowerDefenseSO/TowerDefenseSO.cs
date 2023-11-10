@@ -9,7 +9,7 @@ public class TowerDefenseSO : ScriptableObject
     public float atk;
     public float atkSpeed;
     public  float rangeAtk;
-    public  float price;
+    public  int price;
     public  int currentLevel;
     public  int maxLevel;
     public  Category category;

@@ -9,7 +9,7 @@ public class DataTowerDefense : AdminMonoBehaviour
     [SerializeField] protected  float atkSpeed;
     [SerializeField] protected  float rangeAtk;
     [SerializeField] protected  Category category;
-    [SerializeField] protected  float price;
+    [SerializeField] protected  int price;
     [SerializeField] protected  int currentLevel;
     [SerializeField] protected  int maxLevel;
 

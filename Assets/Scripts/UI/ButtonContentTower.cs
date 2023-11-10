@@ -6,9 +6,11 @@ using UnityEngine;
 public class ButtonContentTower : BaseButton
 {
     protected string nameTower;
+    public string _nameTower => nameTower;
     protected TextMeshProUGUI textPrice;
     protected TowerDefenseSO towerDefenseSO;
-    protected float price;
+    [SerializeField] protected int price;
+    public int _price => price;
     protected override void LoadData()
     {
         this.nameTower = transform.name.Replace("Bn", "");
@@ -27,7 +29,13 @@ public class ButtonContentTower : BaseButton
     }
     protected void OnClick()
     {
-        UIMenuChoseTower.instance.SetNameTower(this.nameTower);
+        if (this.transform.childCount > 3)
+        {
+            UIMenuChoseTower.instance.OnBnOkClick();
+            return;
+        }
+        UIMenuChoseTower.instance.SetButtonContenTower(this);
+        
     }
    
 }

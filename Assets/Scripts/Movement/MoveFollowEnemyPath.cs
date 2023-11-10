@@ -48,6 +48,7 @@ public class MoveFollowEnemyPath : BaseMovement
             yield return null;
         }
         EnemyManager.instance.listPool.PushToPool(this.transform.parent);
+        Player.instance.DecHeal(1);
         myCoroutine = null;
     }
     protected override void Move()

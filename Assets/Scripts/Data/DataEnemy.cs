@@ -33,9 +33,10 @@ public class DataEnemy : Data
     public void RecieveDamage(float damage)
     {
         this.hp -= damage;
+        if (this.hp < 0) this.hp = 0;
         transform.parent.GetComponentInChildren<HpBar>().SetHpBar(this.hp / this.enemySO.hp);
         UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position+new Vector3(0,-0.5f,0), Quaternion.identity);
-        if (this.hp < 0) this.hp=0;
+        
            
     }
     protected void OnEnable()
@@ -44,7 +45,7 @@ public class DataEnemy : Data
     }
     protected void Die()
     {
-        
+        Player.instance.IncKill();
         Transform animation = EnemySpawner.instance.Spawn(transform.parent.Find("Animation"), transform.parent.position, Quaternion.identity);
         SpriteRenderer sprite = animation.GetComponent<SpriteRenderer>();
         sprite.sortingOrder = -1;
@@ -58,8 +59,7 @@ public class DataEnemy : Data
     private void FixedUpdate()
     {
         if (this.hp <= 0)
-        {
-            
+        {      
             this.Die();
         }
     }

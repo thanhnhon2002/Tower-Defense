@@ -20,21 +20,11 @@ public class BuildingPlace : AdminMonoBehaviour
     {
         this.isBuilding = i;
     }
-    public void OnBnSetting()
-    {
-        this.bnOnSettingTower.gameObject.SetActive(true);
-    }
-    public void OnFlag()
-    {
-        this.flag.gameObject.SetActive(true);
-    }
-    public void CloseFlag()
-    {
-        this.flag.gameObject.SetActive(false);
-    }
+
     public void InitialState()
-    {       
-        this.flag.gameObject.SetActive(true);
+    {   
+        if(this.isBuilding) this.flag.gameObject.SetActive(false);
+        else this.flag.gameObject.SetActive(true);
         this.bnOnSettingTower.gameObject.SetActive(true);
         this.settingTower.gameObject.SetActive(false);
         this.bnOption1.gameObject.SetActive(false);
@@ -42,11 +32,7 @@ public class BuildingPlace : AdminMonoBehaviour
         this.bnOption3.gameObject.SetActive(false);
         this.bnOption4.gameObject.SetActive(false);
     }
-    public void HaveTowerStatus()
-    {
-        this.InitialState();
-        this.CloseFlag();
-    }
+
     private void Start()
     {
         this.InitialState();
@@ -72,6 +58,7 @@ public class BuildingPlace : AdminMonoBehaviour
     }
     public void OnBnSettingTowerClick()
     {
+        if (UIMenuChoseTower.instance.gameObject.activeSelf) return;
         if (!this.bnOption1.gameObject.activeSelf)
         {
             this.bnOption1.gameObject.SetActive(true);
@@ -80,15 +67,24 @@ public class BuildingPlace : AdminMonoBehaviour
             this.bnOption4.gameObject.SetActive(true);
             this.settingTower.gameObject.SetActive(true);
         }
-        else if(!this.isBuilding)
-        {
-            this.InitialState();
-        }
         else
         {
             this.InitialState();
-            this.CloseFlag();
         }
+       
+        if (BuildingPlaceManager.instance._currentBuildingPlace==null) BuildingPlaceManager.instance.SetCurrentPlace(this);
+            else if(BuildingPlaceManager.instance._currentBuildingPlace==this)
+            {
+                BuildingPlaceManager.instance._currentBuildingPlace.InitialState();
+                BuildingPlaceManager.instance.SetCurrentPlace(null);
+            }
+            else 
+            {
+                BuildingPlaceManager.instance._currentBuildingPlace.InitialState();
+                BuildingPlaceManager.instance.SetCurrentPlace(this);
+            }
+            
+        
     }
     public void OnBn1Click()
     {
