@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CannonTower
   m_EditorClassIdentifier: 
   name: CannonTpwer
-  atk: 2
-  atkSpeed: 0.7
+  atk: 10
+  atkSpeed: 1.5
   rangeAtk: 3
   price: 100
   currentLevel: 0

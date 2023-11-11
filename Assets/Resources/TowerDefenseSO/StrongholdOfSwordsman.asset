@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: StrongholdOfSwordsman
   atk: 3
-  atkSpeed: 2
+  atkSpeed: 3
   rangeAtk: 6
   price: 75
   currentLevel: 0

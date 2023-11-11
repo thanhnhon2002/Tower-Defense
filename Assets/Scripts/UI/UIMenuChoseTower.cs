@@ -46,7 +46,7 @@ public class UIMenuChoseTower : AdminMonoBehaviour
         this.bnClose = transform.Find("Image").Find("ButtonClose").GetComponent<Button>();
         this.bnOk = transform.Find("Image").Find("ButtonOk").GetComponent<Button>();
         this.fxChose= transform.Find("FXChose");
-        Transform panel = transform.Find("Panel");
+        Transform panel = transform.Find("PanelBnContent");
         foreach (Transform t in panel)
         {
             Button bn = t.GetComponent<Button>();    

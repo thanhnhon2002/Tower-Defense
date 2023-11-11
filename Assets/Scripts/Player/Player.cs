@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 
@@ -63,7 +61,8 @@ public class Player : Data
     public bool IsBuying(int price)
     {
         bool isBuying = this.dataGamePlayer._gold>=price;
-        if(isBuying) this.SetGold(-price);
+        if (isBuying) this.SetGold(-price);
+        else UIManager.instance.Announce("Khong du tien");
         return isBuying;
     }
 }

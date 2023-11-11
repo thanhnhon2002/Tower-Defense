@@ -16,7 +16,7 @@ MonoBehaviour:
   atk: 2
   hp: 20
   atkSpeed: 1
-  runSpeed: 1
+  runSpeed: 2
   rangeAtk: 0
   currentLevel: 0
   maxLevel: 0

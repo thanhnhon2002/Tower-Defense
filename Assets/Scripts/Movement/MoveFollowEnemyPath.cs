@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
 
 public class MoveFollowEnemyPath : BaseMovement
 {
     private Coroutine myCoroutine;
-    [SerializeField] protected List<Vector3> path = new List<Vector3>();
+    [SerializeField] protected List<Vector3> path;
     [SerializeField] protected int currentIndex;
     [SerializeField] protected Enemy enemy;
     [SerializeField] protected EnemyAttack enemyAttack;
@@ -31,6 +27,11 @@ public class MoveFollowEnemyPath : BaseMovement
     {
         while (this.currentIndex != this.path.Count - 1)
         {
+            if (Time.timeScale == 0)
+            {
+               
+                goto jump;
+            }
             if(this.enemyAttack!=null&&this.enemyAttack._isAttack)
             {
                 goto jump;
@@ -39,7 +40,7 @@ public class MoveFollowEnemyPath : BaseMovement
             {
                 if (this.transform.parent.position != this.path[this.currentIndex + 1])
                 {                   
-                    this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy._runSpeed * Time.fixedDeltaTime);
+                    this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy._runSpeed*Time.deltaTime);
                     this.animator.transform.localScale = new Vector3(-1, 1, 0);
                 }
                 else this.currentIndex++;

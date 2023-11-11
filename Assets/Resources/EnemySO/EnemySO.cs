@@ -10,6 +10,7 @@ public class EnemySO : ScriptableObject
     public  float runSpeed;
     public  float atkSpeed;
     public  float rangeAtk;
+    public int gold;
     public  Category category;
    
     

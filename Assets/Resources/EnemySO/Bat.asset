@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   name: Bat
-  hp: 20
-  atk: 1
-  runSpeed: 0.5
+  hp: 15
+  atk: 2
+  runSpeed: 2.5
   atkSpeed: 1
   rangeAtk: 1
+  gold: 20
   category: 2

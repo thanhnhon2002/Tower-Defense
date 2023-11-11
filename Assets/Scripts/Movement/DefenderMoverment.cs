@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-
 public class DefenderMoverment : BaseMovement
 {
     [SerializeField] protected DataDefender dataDefender;
@@ -80,9 +77,7 @@ public class DefenderMoverment : BaseMovement
     }
     Vector3 RandomPos()
     {
-        float x = Random.Range(-5f, 5f); 
-        float y =Random.Range(-5f, 5f);
-        Vector3 randomPos = new Vector3(x, y, 0);
+        Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         Vector3 newPos = randomPos + this.spawnPoint.position;
         //Vector3 newPos = randomPos + this.transform.position;
         if (Vector3.Distance(newPos, this.colliderPath.ClosestPoint(newPos)) > 0.05f) return RandomPos();
@@ -94,6 +89,6 @@ public class DefenderMoverment : BaseMovement
         float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
         if (angle < 90 && angle > -90) this.animator.transform.localScale = new Vector3(1, 1, 0);
         else this.animator.transform.localScale = new Vector3(-1, 1, 0);
-        transform.parent.position = Vector3.MoveTowards(transform.parent.position, pos, this.runSpeed * Time.fixedDeltaTime);
+        transform.parent.position = Vector3.MoveTowards(transform.parent.position, pos, this.runSpeed * Time.deltaTime);
     }
 }

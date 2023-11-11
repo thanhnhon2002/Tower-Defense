@@ -12,6 +12,7 @@ public class DataEnemy : Data
     [SerializeField] protected float rangeAtk;
     [SerializeField] protected Category category;
     [SerializeField] protected new string name;
+    [SerializeField] protected int gold;
     public float _runSpeed => runSpeed;
     public float _atkSpeed => atkSpeed;
     public float _atk => atk;
@@ -29,6 +30,7 @@ public class DataEnemy : Data
         this.atkSpeed = this.enemySO.atkSpeed;
         this.rangeAtk = this.enemySO.rangeAtk;
         this.category = this.enemySO.category;
+        this.gold = this.enemySO.gold;
     }
     public void RecieveDamage(float damage)
     {
@@ -46,6 +48,7 @@ public class DataEnemy : Data
     protected void Die()
     {
         Player.instance.IncKill();
+        Player.instance.SetGold(this.gold);
         Transform animation = EnemySpawner.instance.Spawn(transform.parent.Find("Animation"), transform.parent.position, Quaternion.identity);
         SpriteRenderer sprite = animation.GetComponent<SpriteRenderer>();
         sprite.sortingOrder = -1;

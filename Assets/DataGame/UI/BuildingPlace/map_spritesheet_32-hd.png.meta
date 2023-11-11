@@ -350,6 +350,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: map_spritesheet_32-hd_9
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 1178
+        width: 97
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0911731066b31304fbaaf2fea4e0f7f1
+      internalID: 724483015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -370,6 +391,7 @@ TextureImporter:
       map_spritesheet_32-hd_6: 587307086
       map_spritesheet_32-hd_7: 815205071
       map_spritesheet_32-hd_8: 1487864896
+      map_spritesheet_32-hd_9: 724483015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

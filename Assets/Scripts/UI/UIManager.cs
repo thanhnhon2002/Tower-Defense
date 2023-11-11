@@ -17,4 +17,12 @@ public class UIManager : AdminMonoBehaviour
         this.listPrefab = GetComponentInChildren<ListPrefab>();
         this.listPool = GetComponentInChildren<ListPool>();
     }
+    public void Announce(string text)
+    {
+        Announcement.instance.Announce(text);
+    }
+    public void OnMenuChoseTower()
+    {
+        UIMenuChoseTower.instance.OnMenuChoseTower();
+    }
 }

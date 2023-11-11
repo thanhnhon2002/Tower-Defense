@@ -10,13 +10,20 @@ public class GameManager : AdminMonoBehaviour
     protected DataGameEnemy dataGameEnemy;
     protected override void Awake()
     {
+        base.Awake();
+       
+        instance = this;
+    }
+    protected override void LoadComponent()
+    {
         this.dataGameSO = Resources.Load<DataGameSO>("DataGameSO/DataGame");
         DataGameEnemy data = this.dataGameSO.GetDataGameEnemy(level);
         this.dataGameEnemy = new DataGameEnemy(data._level, data._roundList);
-        instance = this;
     }
     private void Start()
     {
+        //UIManager.instance.Announce("Chao mung ban den voi vong "+ level);
+        UIManager.instance.Announce("Anh yeu em ");
         StartCoroutine(SpawnEnemy());
     }
 
@@ -35,6 +42,14 @@ public class GameManager : AdminMonoBehaviour
             yield return new WaitForSeconds(10);
         }
     }
-
+    public void PauseGame()
+    {
+        if(Time.timeScale == 0) Time.timeScale = 1;
+        else Time.timeScale = 0;
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
     

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonContentTower : BaseButton
 {
@@ -9,6 +10,7 @@ public class ButtonContentTower : BaseButton
     public string _nameTower => nameTower;
     protected TextMeshProUGUI textPrice;
     protected TowerDefenseSO towerDefenseSO;
+    [SerializeField] Image imageBn;
     [SerializeField] protected int price;
     public int _price => price;
     protected override void LoadData()
@@ -17,6 +19,7 @@ public class ButtonContentTower : BaseButton
         this.textPrice = transform.GetComponentInChildren<TextMeshProUGUI>();
         this.towerDefenseSO = Resources.Load<TowerDefenseSO>("TowerDefenseSO/" + this.nameTower);
         this.price = this.towerDefenseSO.price;
+        this.imageBn = transform.GetComponent<Image>();
     }
     private void Start()
     {
@@ -35,7 +38,22 @@ public class ButtonContentTower : BaseButton
             return;
         }
         UIMenuChoseTower.instance.SetButtonContenTower(this);
-        
     }
-   
+    private void FixedUpdate()
+    {
+        if (Player.instance._dataGamePlayer._gold > this.price)
+        {
+
+            Color currentColor = this.imageBn.color;
+            currentColor.a = 1;
+            this.imageBn.color = currentColor;
+        }
+        if (Player.instance._dataGamePlayer._gold < this.price)
+        {
+
+            Color currentColor = this.imageBn.color;
+            currentColor.a = 0.4f;
+            this.imageBn.color = currentColor;
+        }
+    }
 }
