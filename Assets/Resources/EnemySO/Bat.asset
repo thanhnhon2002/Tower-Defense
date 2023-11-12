@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bat
   hp: 15
-  atk: 2
+  atk: 1
   runSpeed: 2.5
   atkSpeed: 1
   rangeAtk: 1

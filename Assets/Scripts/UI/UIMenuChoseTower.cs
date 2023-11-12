@@ -74,14 +74,13 @@ public class UIMenuChoseTower : AdminMonoBehaviour
         {
             if(!Player.instance.IsBuying(this.buttonContentTower._price))
             {
-                /////////////////////
-                Debug.Log("Khong du tien");
                 return;
             }
 
-            TowerDefenseSpawner.instance.Spawn(this.buttonContentTower._nameTower, this.currentPlacePosition, Quaternion.identity);
-            this.buildingPlace.InitialState();
+            Transform newTower  = TowerDefenseSpawner.instance.Spawn(this.buttonContentTower._nameTower, this.currentPlacePosition, Quaternion.identity);
+            this.buildingPlace.SetTowerdefense(newTower);
             this.buildingPlace.SetIsBuild(true);
+            this.buildingPlace.InitialState();
             this.SetDefaulMenu();
             this.CloseMenuChoseTower();
             BuildingPlaceManager.instance.SetCurrentPlace(null);

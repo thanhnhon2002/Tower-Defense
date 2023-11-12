@@ -6,7 +6,11 @@ public class TowerSpMobileObjAttack : TowerAttack
 {   
     [SerializeField] protected Transform target;
     public Transform _target => this.target;
-
+    private void OnEnable()
+    {
+        this.target = null;
+        StartCoroutine("CheckTarget");
+    }
     public void SetTarget(Transform target)
     {
         this.target = target;
@@ -59,9 +63,6 @@ public class TowerSpMobileObjAttack : TowerAttack
             Gizmos.DrawLine(this.transform.parent.position, this.target.position);
     }
 
-    protected void Start()
-    {
-        StartCoroutine("CheckTarget");
-    }
+ 
 
 }

@@ -7,21 +7,28 @@ public class TowerSpDefenderAttack : TowerAttack
     [SerializeField] protected int countDefender;
 
     [SerializeField] protected Collider2D colliderPath;
+    [SerializeField] protected List<Transform> listDefenders;
+    public void SetClearParentListDefender()
+    {
+        foreach (var defender in listDefenders) DefenderManager.instance.listPool.PushToPool(defender);
+        this.listDefenders.Clear();
+    }
+    public void RemoveDefender(Transform defender)
+    {
+        this.listDefenders.Remove(defender);
+    }
     public void ReduceCountDefender() => this.countDefender--;
     protected void OnEnable()
     {
+        this.colliderPath = MapManager.instance.pathMapCollider;
         this.countDefender = 0;
+        this.Attack();
     }
     protected override void LoadComponent()
     { 
         this.towerDefense = this.transform.parent.GetComponent<TowerSpawnDefender>();
         base.LoadComponent();
         
-    }
-    private void Start()
-    {
-        this.colliderPath = MapManager.instance.mapCollider;
-        this.Attack();
     }
     protected override void Attack()
     {
@@ -37,6 +44,7 @@ public class TowerSpDefenderAttack : TowerAttack
             return;
         }
         Transform newObj= DefenderSpawner.instance.Spawn(this.objectSpawn.name, this.spawnPoint.position, Quaternion.identity, newPos, this.transform.parent);
+        this.listDefenders.Add(newObj);
     }
     protected IEnumerator IsSpawnDefender()
     {

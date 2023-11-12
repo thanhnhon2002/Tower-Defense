@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GoblinOrc
   m_EditorClassIdentifier: 
   name: GoblinOrc
-  hp: 30
-  atk: 3
+  hp: 20
+  atk: 2
   runSpeed: 2
   atkSpeed: 1
   rangeAtk: 0

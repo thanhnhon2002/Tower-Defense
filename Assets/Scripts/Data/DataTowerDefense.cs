@@ -17,6 +17,7 @@ public class DataTowerDefense : AdminMonoBehaviour
     public Category _category => this.category;
     public float _atkSpeed => this.atkSpeed;
     public float _atk => this.atk;
+    public int _price => this.price;
    
     protected override void LoadData()
     {

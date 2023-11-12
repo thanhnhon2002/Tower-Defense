@@ -58,7 +58,8 @@ public class DataDefender : DataObjectSpawn
         animation.AddComponent<DestroyByTime>();
         DestroyByTime destroyByTime = animation.GetComponent<DestroyByTime>();
         destroyByTime.SetTimeMax(3.5f);
-        this.spawner.GetComponentInChildren<TowerSpDefenderAttack>().ReduceCountDefender();
+        this.spawner?.GetComponentInChildren<TowerSpDefenderAttack>().RemoveDefender(this.transform.parent);
+        this.spawner?.GetComponentInChildren<TowerSpDefenderAttack>().ReduceCountDefender();
         DefenderManager.instance.listPool.PushToPool(this.transform.parent);
     }
     private void FixedUpdate()

@@ -20,7 +20,7 @@ public class DefenderMoverment : BaseMovement
     protected override void LoadComponent()
     {
         base.LoadComponent();
-        this.colliderPath = MapManager.instance.mapCollider;
+        this.colliderPath = MapManager.instance.pathMapCollider;
         this.dataDefender = transform.parent.GetComponentInChildren<DataDefender>();
         this.animator = transform.parent.GetComponentInChildren<Animator>();
         this.attack = transform.parent.GetComponentInChildren<DefenderAttack>();

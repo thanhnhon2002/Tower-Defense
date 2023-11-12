@@ -22,9 +22,8 @@ public class GameManager : AdminMonoBehaviour
     }
     private void Start()
     {
-        //UIManager.instance.Announce("Chao mung ban den voi vong "+ level);
-        UIManager.instance.Announce("Anh yeu em ");
-        StartCoroutine(SpawnEnemy());
+        UIManager.instance.Announce("Chao mung ban den voi vong "+ level);
+        StartCoroutine(TimeWaiting(10));    
     }
 
     IEnumerator SpawnEnemy()
@@ -36,11 +35,26 @@ public class GameManager : AdminMonoBehaviour
                 for (int i=0;i<dataEnemeInRound._countEnemy;++i)
                 {
                     EnemySpawner.instance.Spawn(dataEnemeInRound._enemy.name, Vector3.zero, Quaternion.identity);
-                    yield return new WaitForSeconds(0.3f);
+                    yield return new WaitForSeconds(0.7f);
                 }
             }
-            yield return new WaitForSeconds(10);
+            if (this.dataGameEnemy._roundList.IndexOf(round) < this.dataGameEnemy._roundList.Count-1)
+            {
+                yield return new WaitForSeconds(10);
+                MapManager.instance.SetWarnningEnemySpawn(true);
+                yield return new WaitForSeconds(5);
+                MapManager.instance.SetWarnningEnemySpawn(false);
+            }
         }
+    }
+    IEnumerator TimeWaiting(float time)
+    {
+        MapManager.instance.SetWarnningEnemySpawn(false);
+        yield return new WaitForSeconds(5);
+        MapManager.instance.SetWarnningEnemySpawn(true);
+        yield return new WaitForSeconds(time-5);
+        MapManager.instance.SetWarnningEnemySpawn(false);
+        StartCoroutine(SpawnEnemy());
     }
     public void PauseGame()
     {

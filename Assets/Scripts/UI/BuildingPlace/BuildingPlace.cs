@@ -14,17 +14,25 @@ public class BuildingPlace : AdminMonoBehaviour
     Button bnOption2;
     Button bnOption3;
     Button bnOption4;
+    Transform towerdefense;
     bool isBuilding;
     public bool _isBuilding =>this.isBuilding;
     public void SetIsBuild(bool i)
     {
         this.isBuilding = i;
     }
-
+    public void SetTowerdefense(Transform tower)
+    {
+        this.towerdefense = tower;
+    }
     public void InitialState()
-    {   
-        if(this.isBuilding) this.flag.gameObject.SetActive(false);
-        else this.flag.gameObject.SetActive(true);
+    {
+        if (this.isBuilding) this.flag.gameObject.SetActive(false);
+        else
+        {
+            this.flag.gameObject.SetActive(true);
+            this.towerdefense = null;
+        }
         this.bnOnSettingTower.gameObject.SetActive(true);
         this.settingTower.gameObject.SetActive(false);
         this.bnOption1.gameObject.SetActive(false);
@@ -88,7 +96,6 @@ public class BuildingPlace : AdminMonoBehaviour
     }
     public void OnBn1Click()
     {
-        Debug.Log("button 1 on click");
         this.bnOnSettingTower.gameObject.SetActive(false);
         UIMenuChoseTower.instance.OnMenuChoseTower();
         UIMenuChoseTower.instance.SetCurrentPlacePosition(transform.position);
@@ -107,8 +114,16 @@ public class BuildingPlace : AdminMonoBehaviour
     }
     public void OnBn4Click()
     {
-        Debug.Log("button 4 on click");
-        this.InitialState();
+        if(this.isBuilding)
+        {
+            int price = this.towerdefense.GetComponentInChildren<DataTowerDefense>()._price;
+            Player.instance.SetGold((int)price/2);
+            this.towerdefense.GetComponentInChildren<TowerSpDefenderAttack>().SetClearParentListDefender();
+            TowerDefenseSpawner.instance._listPool.PushToPool(this.towerdefense);
+            this.isBuilding = false;
+            this.InitialState();
+        }
+        
     }
 
 }

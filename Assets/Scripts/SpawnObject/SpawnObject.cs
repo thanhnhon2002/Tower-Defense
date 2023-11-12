@@ -7,6 +7,7 @@ public abstract class SpawnObject : MonoBehaviour
     
     [SerializeField] protected Transform listClone;
     [SerializeField] protected ListPool listPool;
+    public ListPool _listPool => listPool;
     protected virtual void Awake()
     {
         

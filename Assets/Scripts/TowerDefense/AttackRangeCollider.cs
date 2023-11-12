@@ -7,6 +7,10 @@ public class AttackRangeCollider : AdminMonoBehaviour
     List<Transform> listTarget = new List<Transform>();
     [SerializeField] protected TowerSpawnMobileObject towerdefense;
     protected TowerSpMobileObjAttack towerAttack;
+    private void OnEnable()
+    {
+        this.listTarget = new List<Transform>();
+    }
     protected override void LoadComponent()
     {
         this.towerdefense = transform.parent.GetComponentInChildren<TowerSpawnMobileObject>();
@@ -42,14 +46,13 @@ public class AttackRangeCollider : AdminMonoBehaviour
     }
     private void FixedUpdate()
     {
+        foreach (Transform x in this.listTarget) if (!x.gameObject.activeSelf) this.listTarget.Remove(x);
         if (this.listTarget.Count <= 0)
         {
             if (!this.towerAttack._isAttack) this.towerAttack.SetIsAttack(false);
             this.towerAttack.SetTarget(null);
             return;
         }
-
-
         if (!this.towerAttack._isAttack)
         {
             this.towerAttack.SetIsAttack(true);
