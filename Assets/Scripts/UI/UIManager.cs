@@ -25,4 +25,5 @@ public class UIManager : AdminMonoBehaviour
     {
         UIMenuChoseTower.instance.OnMenuChoseTower();
     }
+    
 }

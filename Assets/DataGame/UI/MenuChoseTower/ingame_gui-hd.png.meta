@@ -165,10 +165,10 @@ TextureImporter:
       name: ingame_gui-hd_0
       rect:
         serializedVersion: 2
-        x: 1074
-        y: 51
-        width: 227
-        height: 80
+        x: 678
+        y: 440
+        width: 123
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,7 +569,7 @@ TextureImporter:
         width: 62
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,6 +577,48 @@ TextureImporter:
       bones: []
       spriteID: d64911a283d4b38459e412bd1f60a3d0
       internalID: 75711673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingame_gui-hd_20
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 125
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58a0cf3391b92f45800315a544c3b8c
+      internalID: -1354214143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingame_gui-hd_21
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 52
+        width: 227
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb21fbf55ddef4f4d88fdd6e155a9b02
+      internalID: 1576963139
       vertices: []
       indices: 
       edges: []
@@ -605,6 +647,8 @@ TextureImporter:
       ingame_gui-hd_18: 73573859
       ingame_gui-hd_19: 75711673
       ingame_gui-hd_2: -1765879802
+      ingame_gui-hd_20: -1354214143
+      ingame_gui-hd_21: 1576963139
       ingame_gui-hd_3: -885336927
       ingame_gui-hd_4: -561909624
       ingame_gui-hd_5: 2012184124

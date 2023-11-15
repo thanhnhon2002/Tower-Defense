@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-//using static UnityEditor.PlayerSettings;
+
 
 public class DefenderAttack : AttackOnPath
 { 
     [SerializeField] protected DataDefender dataDefender;
-    
     protected override void LoadComponent()
     {
         base.LoadComponent();

@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyPath : MonoBehaviour
+public class EnemyPath : AdminMonoBehaviour
 {
-    [SerializeField] protected List<Transform> listPoint; 
+    [SerializeField] protected List<Transform> listPoint;
+    protected override void LoadComponent()
+    {
+        if(listPoint.Count==0)
+        {
+            foreach (Transform t in transform) this.listPoint.Add(t);
+        }
+    }
     public List<Vector3> GetListPos()
     {
         List<Vector3> list = new List<Vector3>();

@@ -8,14 +8,14 @@ public class BuildingPlace : AdminMonoBehaviour
 {
     SpriteRenderer ground;
     SpriteRenderer flag;
-    SpriteRenderer settingTower;
+    Image settingTower;
     Button bnOnSettingTower;
     Button bnOption1;
     Button bnOption2;
     Button bnOption3;
     Button bnOption4;
-    Transform towerdefense;
-    bool isBuilding;
+    [SerializeField] Transform towerdefense;
+    [SerializeField] bool isBuilding;
     public bool _isBuilding =>this.isBuilding;
     public void SetIsBuild(bool i)
     {
@@ -51,7 +51,7 @@ public class BuildingPlace : AdminMonoBehaviour
         this.flag = transform.Find("Flag").GetComponent<SpriteRenderer>();
 
         this.bnOnSettingTower = transform.Find("Canvas").Find("BnOnSettingTower").GetComponent<Button>();
-        this.settingTower = transform.Find("Canvas").Find("ImageSettingTower").GetComponent<SpriteRenderer>();
+        this.settingTower = transform.Find("Canvas").Find("ImageSettingTower").GetComponent<Image>();
         this.bnOption1 = transform.Find("Canvas").Find("Option1").GetComponent<Button>();
         this.bnOption2 = transform.Find("Canvas").Find("Option2").GetComponent<Button>();
         this.bnOption3 = transform.Find("Canvas").Find("Option3").GetComponent<Button>();
@@ -109,7 +109,7 @@ public class BuildingPlace : AdminMonoBehaviour
     }
     public void OnBn3Click()
     {
-        Debug.Log("button 3 on click");
+        Announcement.instance.Announce("The function is not locked");
         this.InitialState();
     }
     public void OnBn4Click()
@@ -118,7 +118,7 @@ public class BuildingPlace : AdminMonoBehaviour
         {
             int price = this.towerdefense.GetComponentInChildren<DataTowerDefense>()._price;
             Player.instance.SetGold((int)price/2);
-            this.towerdefense.GetComponentInChildren<TowerSpDefenderAttack>().SetClearParentListDefender();
+            this.towerdefense.GetComponentInChildren<TowerSpDefenderAttack>()?.SetClearParentListDefender();
             TowerDefenseSpawner.instance._listPool.PushToPool(this.towerdefense);
             this.isBuilding = false;
             this.InitialState();

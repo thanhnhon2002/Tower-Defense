@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : AdminMonoBehaviour
 {
     static public EnemyManager instance;
+    public Transform tClone;
     public ListPrefab listPrefab;
     public ListPool listPool;
     protected override void Awake()
@@ -15,7 +16,10 @@ public class EnemyManager : AdminMonoBehaviour
     }
     protected override void LoadComponent()
     {
+        this.tClone = transform.Find("ListClone");
         this.listPrefab = GetComponentInChildren<ListPrefab>();
         this.listPool = GetComponentInChildren<ListPool>();
     }
+    public bool IsHaveEnemy() { return this.tClone.childCount == 0 ? false : true; }
+  
 }

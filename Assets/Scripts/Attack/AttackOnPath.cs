@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class AttackOnPath : BaseAttack
@@ -58,6 +57,5 @@ public abstract class AttackOnPath : BaseAttack
         this.isAttack = false;
         this.animationAttackCoroutine = null;
         this.attackCoroutine = null;
-
     }
 }

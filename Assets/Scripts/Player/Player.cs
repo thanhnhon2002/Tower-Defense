@@ -9,7 +9,8 @@ public class Player : Data
     [SerializeField] protected int level;
     [SerializeField] protected DataGamePlayer dataGamePlayer;
     [SerializeField] protected int kill;
-    protected DataGameSO dataPlayerGameSO;
+    public int _kill => kill;
+    [SerializeField]protected DataGameSO dataPlayerGameSO;
     public DataGamePlayer _dataGamePlayer => dataGamePlayer;
 
     [SerializeField] protected TextMeshProUGUI textGold;
@@ -23,14 +24,15 @@ public class Player : Data
     protected override void LoadData()
     {
         this.dataPlayerGameSO = Resources.Load<DataGameSO>("DataGameSO/DataGame");
-        DataGamePlayer data = this.dataPlayerGameSO.GetDataGamePlayer(this.level);
-        this.dataGamePlayer = new DataGamePlayer(data._level, data._gold, data._heal);
         this.textGold = transform.Find("TextGold").GetComponent<TextMeshProUGUI>();
         this.textKill = transform.Find("TextKill").GetComponent<TextMeshProUGUI>();
         this.textHeal = transform.Find("TextHeal").GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {
+        this.level = GameManager.instance._level;
+        DataGamePlayer data = this.dataPlayerGameSO.GetDataGamePlayer(this.level);
+        this.dataGamePlayer = new DataGamePlayer(data._level, data._gold, data._heal);
         this.textGold.text = this.dataGamePlayer._gold.ToString();
         this.textHeal.text = this.dataGamePlayer._heal.ToString();
         this.textKill.text = this.kill.ToString();
@@ -62,7 +64,15 @@ public class Player : Data
     {
         bool isBuying = this.dataGamePlayer._gold>=price;
         if (isBuying) this.SetGold(-price);
-        else UIManager.instance.Announce("Khong du tien");
+        else UIManager.instance.Announce("Not enough gold to buy");
         return isBuying;
+    }
+    public void HideUI()
+    {
+        this.gameObject.SetActive(false);
+    }
+    private void FixedUpdate()
+    {
+        if (this.dataGamePlayer._heal == 0) GameManager.instance.EndGame();
     }
 }

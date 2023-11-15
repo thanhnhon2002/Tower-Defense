@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listDataGamePlayers:
   - level: 1
-    gold: 200
-    heal: 20
+    gold: 100
+    heal: 10
   - level: 2
     gold: 150
+    heal: 15
+  - level: 3
+    gold: 200
     heal: 15
   listDataGameEnemys:
   - level: 1
@@ -34,6 +37,23 @@ MonoBehaviour:
       - enemy: {fileID: 1160044910244283532, guid: 3899dbe7f222ef54c85874dac1862a8d, type: 3}
         countEnemy: 5
   - level: 2
+    roundList:
+    - listEnemyInRound:
+      - enemy: {fileID: 446097035685043128, guid: 10f8ab26d792dbe428e38b78142e25ee, type: 3}
+        countEnemy: 5
+      - enemy: {fileID: 1160044910244283532, guid: 3899dbe7f222ef54c85874dac1862a8d, type: 3}
+        countEnemy: 5
+    - listEnemyInRound:
+      - enemy: {fileID: 1021354331116432745, guid: 904553eb1d7002748839015ece272746, type: 3}
+        countEnemy: 10
+    - listEnemyInRound:
+      - enemy: {fileID: 446097035685043128, guid: 10f8ab26d792dbe428e38b78142e25ee, type: 3}
+        countEnemy: 5
+      - enemy: {fileID: 1160044910244283532, guid: 3899dbe7f222ef54c85874dac1862a8d, type: 3}
+        countEnemy: 5
+      - enemy: {fileID: 1021354331116432745, guid: 904553eb1d7002748839015ece272746, type: 3}
+        countEnemy: 5
+  - level: 3
     roundList:
     - listEnemyInRound:
       - enemy: {fileID: 446097035685043128, guid: 10f8ab26d792dbe428e38b78142e25ee, type: 3}

@@ -53,9 +53,17 @@ public class TowerSpDefenderAttack : TowerAttack
         {
             if(this.countDefender<this.dataTower._atk)
             {
-                this.countDefender++;
-                this.SpawnDefender();
-                yield return new WaitForSeconds(this.dataTower._atkSpeed); 
+                if (this.countDefender == 0)
+                {
+                    this.countDefender++;
+                    this.SpawnDefender();
+                }
+                else
+                {
+                    yield return new WaitForSeconds(this.dataTower._atkSpeed);
+                    this.countDefender++;
+                    this.SpawnDefender();
+                }
             }
 
             yield return null;
