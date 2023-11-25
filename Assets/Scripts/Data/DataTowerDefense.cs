@@ -5,7 +5,7 @@ using UnityEngine;
 public class DataTowerDefense : AdminMonoBehaviour
 {
     [SerializeField] protected  new string name;
-    [SerializeField] protected  float atk;
+    [SerializeField] protected  int atk;
     [SerializeField] protected  float atkSpeed;
     [SerializeField] protected  float rangeAtk;
     [SerializeField] protected  Category category;
@@ -16,7 +16,7 @@ public class DataTowerDefense : AdminMonoBehaviour
     [SerializeField] protected TowerDefenseSO towerDefenseSO;
     public Category _category => this.category;
     public float _atkSpeed => this.atkSpeed;
-    public float _atk => this.atk;
+    public int _atk => this.atk;
     public int _price => this.price;
    
     protected override void LoadData()
@@ -28,7 +28,7 @@ public class DataTowerDefense : AdminMonoBehaviour
         this.rangeAtk = this.towerDefenseSO.rangeAtk;
         this.category = this.towerDefenseSO.category;
         this.price = this.towerDefenseSO.price;
-        this.currentLevel = this.towerDefenseSO.currentLevel;
-        this.maxLevel = this.currentLevel = this.towerDefenseSO.maxLevel;    
+        this.maxLevel = this.currentLevel = this.towerDefenseSO.maxLevel;
+        this.currentLevel = 1;
     }
 }

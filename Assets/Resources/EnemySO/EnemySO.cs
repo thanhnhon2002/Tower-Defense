@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public new string name;
-    public  float hp;
-    public  float atk;
+    public  int hp;
+    public  int atk;
     public  float runSpeed;
     public  float atkSpeed;
     public  float rangeAtk;

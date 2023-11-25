@@ -25,6 +25,6 @@ public class EnemyPath : AdminMonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < listPoint.Count - 1; i++) Gizmos.DrawLine(this.listPoint[i].position, this.listPoint[i + 1].position);  
+        //for (int i = 0; i < listPoint.Count - 1; i++) Gizmos.DrawLine(this.listPoint[i].position, this.listPoint[i + 1].position);  
     }
 }

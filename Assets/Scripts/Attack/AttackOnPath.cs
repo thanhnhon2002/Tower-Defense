@@ -46,7 +46,7 @@ public abstract class AttackOnPath : BaseAttack
         this.animator.SetInteger("attack", 0);
         this.animationAttackCoroutine = null;
     }
-    protected abstract void SendDamage(float damage);
+    protected abstract void SendDamage(int damage);
     protected abstract IEnumerator AttackSpeedAtk();
     protected virtual void OnDisable()
     {

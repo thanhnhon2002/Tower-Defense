@@ -6,11 +6,10 @@ using UnityEngine;
 public class TowerDefenseSO : ScriptableObject
 {
     public new string name;
-    public float atk;
+    public int atk;
     public float atkSpeed;
     public  float rangeAtk;
     public  int price;
-    public  int currentLevel;
     public  int maxLevel;
     public  Category category;
 

@@ -10,5 +10,13 @@ public class DataPlayerSO : ScriptableObject
     {
         if(this.level < level) this.level = level;
     }
-
+    [SerializeField] float volumeMusic=1;
+    public float _volumeMusic => volumeMusic;
+    [SerializeField] float volumeFXSound=1;
+    public float _volumeFXSound => volumeFXSound;
+    public void SetVolume(float music,float fx)
+    {
+        this.volumeMusic = music;
+        this.volumeFXSound = fx;
+    }
 }

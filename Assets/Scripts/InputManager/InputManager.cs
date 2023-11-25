@@ -51,6 +51,7 @@ public class InputManager : MonoBehaviour
                 else Camera.main.transform.position -= distance;
             }
         }
+       
     }
     void ZoomCamera()
     {

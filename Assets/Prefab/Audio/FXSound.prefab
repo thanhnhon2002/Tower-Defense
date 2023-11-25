@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6597166860579283875}
   - component: {fileID: 84525788037971753}
+  - component: {fileID: 7371940208192830058}
   m_Layer: 0
-  m_Name: AudioSource
+  m_Name: FXSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,3 +129,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7371940208192830058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007002737418057642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2145e3336331f4cb5e71bf524e01b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

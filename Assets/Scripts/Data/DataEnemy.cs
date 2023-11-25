@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class DataEnemy : Data
 {
-    [SerializeField] protected float hp;
-    [SerializeField] protected float atk;
+    [SerializeField] protected int hp;
+    [SerializeField] protected int atk;
     [SerializeField] protected float runSpeed;
     [SerializeField] protected float atkSpeed;
     [SerializeField] protected float rangeAtk;
@@ -15,8 +15,8 @@ public class DataEnemy : Data
     [SerializeField] protected int gold;
     public float _runSpeed => runSpeed;
     public float _atkSpeed => atkSpeed;
-    public float _atk => atk;
-    public float _hp => hp;
+    public int _atk => atk;
+    public int _hp => hp;
     public Category _category => this.category;
 
     [SerializeField] protected EnemySO enemySO;
@@ -32,14 +32,12 @@ public class DataEnemy : Data
         this.category = this.enemySO.category;
         this.gold = this.enemySO.gold;
     }
-    public void RecieveDamage(float damage)
+    public void RecieveDamage(int damage)
     {
         this.hp -= damage;
         if (this.hp < 0) this.hp = 0;
-        transform.parent.GetComponentInChildren<HpBar>().SetHpBar(this.hp / this.enemySO.hp);
-        UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position+new Vector3(0,-0.5f,0), Quaternion.identity);
-        
-           
+        transform.parent.GetComponentInChildren<HpBar>().SetHpBar((float)this.hp /(float) this.enemySO.hp);
+        UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position+new Vector3(0,-0.5f,0), Quaternion.identity);        
     }
     protected void OnEnable()
     {
@@ -50,7 +48,7 @@ public class DataEnemy : Data
         Player.instance.IncKill();
         Player.instance.SetGold(this.gold);
         Transform animation = EnemySpawner.instance.Spawn(transform.parent.Find("Animation"), transform.parent.position, Quaternion.identity);
-        SpriteRenderer sprite = animation.GetComponent<SpriteRenderer>();
+        SpriteRenderer sprite = animation.GetComponentInChildren<SpriteRenderer>();
         sprite.sortingOrder = -1;
         Animator animator = animation.GetComponentInChildren<Animator>();
         animator.SetInteger("die", 1);

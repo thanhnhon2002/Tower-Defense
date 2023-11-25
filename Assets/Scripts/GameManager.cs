@@ -36,6 +36,8 @@ public class GameManager : AdminMonoBehaviour
     }
     private void Start()
     {
+      
+        Screen.SetResolution(960, 540, FullScreenMode.Windowed);
         if (this.level == 0)
         {
             this.UnLockLevel(1);
@@ -104,11 +106,13 @@ public class GameManager : AdminMonoBehaviour
     }
     public void LoadScene(string name)
     {
-        SceneManager.LoadScene(name);
+        //SceneManager.LoadScene(name);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(name);
+        UILoadingScene.instance.ShowUI(operation);
     }
     public void UnLockLevel(int level)
     {
-        if (level > 3) return;
+        if (level > 4) return;
         this.dataPlayerSO.UnLockLevel(level);
     }
     public void EndGame()

@@ -5,8 +5,8 @@ using UnityEngine;
 public class DefenderSO : ScriptableObject
 {
     public new string name;
-    public float atk;
-    public float hp;
+    public int atk;
+    public int hp;
     public float atkSpeed;
     public float runSpeed;
     public float rangeAtk;

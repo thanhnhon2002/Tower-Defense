@@ -11,6 +11,10 @@ public class DestroyByTime : BaseDestroy
     {
         this.timeMax = time;
     }
+    public void SetListPool(ListPool l)
+    {
+        this.listPool = l;
+    }
     protected override bool IsDestroy()
     {
         if(this.currentTime >= timeMax&&timeMax!=0)

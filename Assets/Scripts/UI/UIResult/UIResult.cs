@@ -59,7 +59,7 @@ public class UIResult : AdminMonoBehaviour
     void SetTextStar()
     {
         float starPoint = (float)Player.instance._dataGamePlayer._heal / (float)this.dataGameSO.GetDataGamePlayer(GameManager.instance._level)._heal;
-        if (starPoint <= 0.34f) this.starPoint = 1;
+        if (starPoint <= 0.65f) this.starPoint = 1;
         else if (starPoint ==1) this.starPoint = 3;
         else this.starPoint = 2;
         Debug.Log(starPoint);

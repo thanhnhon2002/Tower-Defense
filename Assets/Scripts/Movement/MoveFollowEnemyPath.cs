@@ -41,7 +41,6 @@ public class MoveFollowEnemyPath : BaseMovement
                 if (this.transform.parent.position != this.path[this.currentIndex + 1])
                 {                   
                     this.transform.parent.position = Vector3.MoveTowards(this.transform.parent.position, this.path[this.currentIndex + 1], this.enemy.dataEnemy._runSpeed*Time.deltaTime);
-                    //this.animator.transform.localScale = new Vector3(-1, 1, 0);
                     Vector3 distance = this.path[this.currentIndex + 1] - transform.parent.position;
                     float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
                     if (angle < 90 && angle > -90) this.animator.transform.localScale = new Vector3(1,1, 0);

@@ -6,8 +6,8 @@ using UnityEngine;
 public class DataDefender : DataObjectSpawn
 {
     [SerializeField] protected new string name;
-    [SerializeField] protected float atk;
-    [SerializeField] protected float hp;
+    [SerializeField] protected int atk;
+    [SerializeField] protected int hp;
     [SerializeField] protected float atkSpeed;
     [SerializeField] protected float runSpeed;
     [SerializeField] protected float rangeAtk;
@@ -17,8 +17,8 @@ public class DataDefender : DataObjectSpawn
     [SerializeField] protected DefenderSO defenderSO;
     public float _runSpeed => this.runSpeed;
     public float _atkSpeed => this.atkSpeed;
-    public float _atk => this.atk;
-    public float _hp => this.hp;
+    public int _atk => this.atk;
+    public int _hp => this.hp;
     public Category _category => this.category;
 
     protected override void LoadData()
@@ -39,9 +39,10 @@ public class DataDefender : DataObjectSpawn
     {
         this.hp = this.defenderSO.hp;
     }
-    public void ReceiveDamage(float damage)
+    public void ReceiveDamage(int damage)
     {
         this.hp -= damage;
+        transform.parent.GetComponentInChildren<HpBar>().SetHpBar((float)this.hp / (float)this.defenderSO.hp);
         UISpawner.instance.SpawnDamageText(damage.ToString(), transform.parent.position, Quaternion.identity);
         if (this.hp < 0)
         {

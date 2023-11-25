@@ -12,4 +12,5 @@ public abstract class TowerDenfense : AdminMonoBehaviour
         this.tData = this.transform.Find("Data");
         this.tInterface = this.transform.Find("Interface");
     }
+
 }

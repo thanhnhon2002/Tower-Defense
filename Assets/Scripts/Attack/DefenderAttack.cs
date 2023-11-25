@@ -30,7 +30,7 @@ public class DefenderAttack : AttackOnPath
         }
     }
    
-    protected override void SendDamage(float damage)
+    protected override void SendDamage(int damage)
     {
         DataEnemy data = this.target.GetComponentInChildren<DataEnemy>();
         data.RecieveDamage(damage);
