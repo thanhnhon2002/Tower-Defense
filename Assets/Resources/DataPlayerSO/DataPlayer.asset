@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: DataPlayer
   m_EditorClassIdentifier: 
   level: 1
+  volumeMusic: 1
+  volumeFXSound: 1
